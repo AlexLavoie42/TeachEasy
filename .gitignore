@@ -4,4 +4,5 @@
 
 /TeachEasy/.vs/TeachEasy
 /TeachEasy/obj
+/TeachEasy/bin
 *.cache
