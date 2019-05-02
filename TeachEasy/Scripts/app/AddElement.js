@@ -141,7 +141,7 @@ tf.onclick = function () { questionTypeSelected(3); }
 var questionsListDiv = document.getElementById("questionsList");
 var questionsArray = [
     "Write a paragraph to describe yourself.",
-    "This answer is NOT an example of an animal: a. Alligator\tb. Giraffe\tc. Lion\td. Rose",
+    "This answer is NOT an example of an animal: a. Alligator b. Giraffe c. Lion d. Rose",
     "A ______ creates honey",
     "Santa is real:\t\ttrue\tfalse"
 ];
@@ -153,4 +153,13 @@ function addQuestion() {
     question.innerHTML = questionsArray[questionType];
     questionDivs[questionsNum++] = question;
     questionsListDiv.appendChild(questionDivs[questionsNum - 1]);
+}
+
+//relocate elements on window resize
+window.onresize = function () {
+    addSecX = window.innerWidth / 2 - addSecImg.width / 2;
+    addSecImg.style.left = addSecX + "px";
+
+    questionTypeX = window.innerWidth / 100 * 30;
+    questionTypeTable.style.right = questionTypeX + "px";
 }
