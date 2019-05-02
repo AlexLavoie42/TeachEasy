@@ -120,7 +120,7 @@ function questionTypeSelected(num) {
     moveQuestionTypeTable(300);
     questionTypeTable.style.display = "none";
     enableAddSecIcon(true);
-    fadeInElement(addSecImg);
+    fadeInElement(addSecImg, 30);
     addQuestion();
 }
 
@@ -129,7 +129,7 @@ function addSecIconPressed() {
     secIconUnhovered();//deselect the icon
     enableAddSecIcon(false);
     questionTypeTable.style.display = "block";
-    fadeInElement(questionTypeTable, 25);
+    fadeInElement(questionTypeTable, 30);
 }
 
 written.onclick = function () { questionTypeSelected(0); }
@@ -143,7 +143,7 @@ var questionsArray = [
     "Write a paragraph to describe yourself.",
     "This answer is NOT an example of an animal: a. Alligator b. Giraffe c. Lion d. Rose",
     "A ______ creates honey",
-    "Santa is real:\t\ttrue\tfalse"
+    "Santa is real: true false"
 ];
 var questionDivs = new Array();//array holding all individual question divs
 var questionsNum;//number of question divs
