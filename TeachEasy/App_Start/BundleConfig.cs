@@ -40,6 +40,10 @@ namespace TeachEasy
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
                  "~/Content/Site.css"));
+
+            //js for Document view
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                 "~/Scripts/app/AddElement.js"));
         }
     }
 }

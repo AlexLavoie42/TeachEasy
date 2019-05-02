@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Doc";
+}
+
+@Styles.Render("~/Content/Document.css")
+@Scripts.Render("~/Scripts/app/Document.js")
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment</title>
+</head>
+
+<body>
+    <div id="reqQuestionType">
+        <form>
+            <button id="written" class="button" type="button">Written</button><br />
+            <button id="mc" class="button" type="button">Multiple Choice</button><br />
+            <button id="fib" class="button" type="button">Fill in Blank</button><br />
+            <button id="tf" class="button" type="button">True/False</button>
+        </form>
+    </div>
+
+    <div id="questionsList">
+
+    </div>
+</body>
+</html>
+
