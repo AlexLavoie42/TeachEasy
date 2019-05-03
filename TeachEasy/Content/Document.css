@@ -7,6 +7,16 @@
     text-align: center;
 }
 
+#graphInfo {
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: grey;
+    display: none;
+    position: absolute;
+    top: 400px;
+    right: 20%;
+}
+
 .button {
     background-color: white; /* Green */
     border: 2px solid #dd2727;

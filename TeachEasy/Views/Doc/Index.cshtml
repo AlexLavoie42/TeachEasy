@@ -4,7 +4,7 @@
 }
 
 @Styles.Render("~/Content/Document.css")
-@Scripts.Render("~/Scripts/app/Document.js")
+@Scripts.Render("~/Scripts/app/AddElement.js")
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +13,10 @@
 </head>
 
 <body>
+    <form id="toolbar">
+        <button type="button" id="graphButton" onclick="insertGraph()">graph</button>
+    </form>
+
     <div id="reqQuestionType">
         <form>
             <button id="written" class="button" type="button">Written</button><br />
@@ -20,6 +24,11 @@
             <button id="fib" class="button" type="button">Fill in Blank</button><br />
             <button id="tf" class="button" type="button">True/False</button>
         </form>
+    </div>
+
+    <div id="graphInfo">
+        <input type="text" placeholder="y = x" /><br />
+        <button type="button">Virtual keyboard</button>
     </div>
 
     <div id="questionsList">

@@ -163,3 +163,9 @@ window.onresize = function () {
     questionTypeX = window.innerWidth / 100 * 30;
     questionTypeTable.style.right = questionTypeX + "px";
 }
+
+var graphInfo = document.getElementById("graphInfo");
+function insertGraph() {
+    graphInfo.style.display = "block";
+    fadeInElement(graphInfo, 30);
+}
