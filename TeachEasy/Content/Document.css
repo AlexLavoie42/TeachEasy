@@ -3,6 +3,12 @@
     border-radius: 15px;
 }
 
+.infoBox input{
+    border-radius: 5px;
+    border: 1px solid blue;
+    height: 40px;
+}
+
 #reqQuestionType{
     border: solid black 3px;
     border-radius: 5px;
@@ -15,7 +21,6 @@
 #graphInfo {
     border: 2px solid black;
     border-radius: 15px;
-    background-color: grey;
     display: none;
     position: absolute;
     top: 400px;
