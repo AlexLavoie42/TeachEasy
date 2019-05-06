@@ -1,15 +1,37 @@
-﻿#reqQuestionType{
+﻿.infoBox {
+    border: 1px solid #808080;
+    border-radius: 15px;
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+}
+
+.infoBox input {
+    border-radius: 5px;
+    border: 1px solid #FF6F69;
+    height: 40px;
+}
+
+#reqQuestionType {
     border: solid black 3px;
     border-radius: 5px;
-    background-color: #0fd882;
     position: absolute;
     top: 100px;
     right: 30%;
 }
 
+#graphInfo {
+    border: 2px solid black;
+    border-radius: 15px;
+    display: none;
+    position: absolute;
+    top: 400px;
+    right: 10%;
+}
+
 .button {
     background-color: white; /* Green */
-    border: 2px solid #dd2727;
+    border: 2px solid #FF6F69;
     color: black;
     padding: 16px 32px;
     text-align: center;
@@ -23,6 +45,6 @@
 }
 
 .button:hover {
-    background-color: #dd2727;
+    background-color: #FF6F69;
     color: white;
 }
