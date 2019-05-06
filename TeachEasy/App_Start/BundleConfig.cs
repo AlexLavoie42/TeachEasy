@@ -46,7 +46,8 @@ namespace TeachEasy
 
             //js for Document view
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                 "~/Scripts/app/AddElement.js"));
+                 "~/Scripts/app/AddElement.js",
+                 "~/Scripts/app/Text.js"));
         }
     }
 }
