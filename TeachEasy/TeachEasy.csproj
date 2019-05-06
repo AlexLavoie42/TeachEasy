@@ -222,11 +222,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-<<<<<<< HEAD
-    <Compile Include="Controllers\DocController.cs" />
-=======
     <Compile Include="Controllers\AssignmentController.cs" />
->>>>>>> 1085912844b6b1fc606539473b380d8b3cf80690
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeController.cs" />
@@ -255,12 +251,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-<<<<<<< HEAD
     <Content Include="images\addSec.png" />
     <Content Include="Scripts\app\AddElement.js" />
-=======
     <Content Include="Scripts\app\assignment.viewmodel.js" />
->>>>>>> 1085912844b6b1fc606539473b380d8b3cf80690
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
