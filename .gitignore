@@ -2,6 +2,12 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+<<<<<<< HEAD
 /TeachEasy/bin
 /TeachEasy/packages
 /TeachEasy/.vs/TeachEasy
+=======
+/TeachEasy/.vs/TeachEasy
+/TeachEasy/packages
+/TeachEasy/bin
+>>>>>>> 1085912844b6b1fc606539473b380d8b3cf80690
