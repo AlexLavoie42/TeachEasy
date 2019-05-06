@@ -7,7 +7,7 @@ var addSecSelected;//if the add-section icon is selected
 var addSecEnabled;//if the add-section icon is enabled
 
 //give the variables their values
-addSecImg.src = "../images/addSec.png";
+addSecImg.src = "../../images/addSec.png";
 addSecHighlight.style.backgroundColor = "#6a6a6a";
 addSecHighlight.style.opacity = "0.5";
 addSecHighlight.style.filter = "alpha(opacity=50)";
@@ -120,7 +120,7 @@ function questionTypeSelected(num) {
     moveQuestionTypeTable(300);
     questionTypeTable.style.display = "none";
     enableAddSecIcon(true);
-    fadeInElement(addSecImg);
+    fadeInElement(addSecImg, 30);
     addQuestion();
 }
 
@@ -129,7 +129,7 @@ function addSecIconPressed() {
     secIconUnhovered();//deselect the icon
     enableAddSecIcon(false);
     questionTypeTable.style.display = "block";
-    fadeInElement(questionTypeTable, 25);
+    fadeInElement(questionTypeTable, 30);
 }
 
 written.onclick = function () { questionTypeSelected(0); }
@@ -141,9 +141,9 @@ tf.onclick = function () { questionTypeSelected(3); }
 var questionsListDiv = document.getElementById("questionsList");
 var questionsArray = [
     "Write a paragraph to describe yourself.",
-    "This answer is NOT an example of an animal: a. Alligator\tb. Giraffe\tc. Lion\td. Rose",
+    "This answer is NOT an example of an animal: a. Alligator b. Giraffe c. Lion d. Rose",
     "A ______ creates honey",
-    "Santa is real:\t\ttrue\tfalse"
+    "Santa is real: true false"
 ];
 var questionDivs = new Array();//array holding all individual question divs
 var questionsNum;//number of question divs
@@ -153,4 +153,19 @@ function addQuestion() {
     question.innerHTML = questionsArray[questionType];
     questionDivs[questionsNum++] = question;
     questionsListDiv.appendChild(questionDivs[questionsNum - 1]);
+}
+
+//relocate elements on window resize
+window.onresize = function () {
+    addSecX = window.innerWidth / 2 - addSecImg.width / 2;
+    addSecImg.style.left = addSecX + "px";
+
+    questionTypeX = window.innerWidth / 100 * 30;
+    questionTypeTable.style.right = questionTypeX + "px";
+}
+
+var graphInfo = document.getElementById("graphInfo");
+function insertGraph() {
+    graphInfo.style.display = "block";
+    fadeInElement(graphInfo, 30);
 }

@@ -330,7 +330,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Scripts\knockout.validation.min.js.map" />
-    <Content Include="Views\Doc\Index.cshtml" />
     <Content Include="Views\Assignment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
