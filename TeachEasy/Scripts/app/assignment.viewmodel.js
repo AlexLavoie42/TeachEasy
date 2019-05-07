@@ -47,6 +47,7 @@
     addSecHighlight.style.left = "-200px";
     addSecHighlight.style.top = "-200px";
 
+    questionTypeTable.style.position = "absolute";
     questionTypeTable.style.top = questionTypeY + "px";
     questionTypeTable.style.right = questionTypeX + "px";
 
