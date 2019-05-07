@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Index";
 }
-@Scripts.Render("~/bundles/assignment")
 
 <link href="../../Content/Document.css" rel="stylesheet" type="text/css" />
 <div id="toolbar">
@@ -17,7 +16,7 @@
     <div id="question_modifiers">
         <button type="button">Question Options</button>
         <button type="button">Math Keyboard</button>
-        <button type="button" onclick="insertGraph()">Insert Graph</button>
+        <button type="button">Insert Graph</button>
     </div>
     <div id="misc">
         <button type="button">Export As...</button>
@@ -48,3 +47,5 @@
     <div id="toolbar"></div>
     <p>Hello world</p>
 </div>
+
+@Scripts.Render("~/bundles/assignment")

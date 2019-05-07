@@ -39,6 +39,9 @@
     addSecHighlight.style.width = "52px";
     addSecHighlight.style.height = "41px";
 
+    //initialize variables based on modifications above
+    var addSecX = window.innerWidth / 2 - addSecImg.width / 2, addSecY = 300;
+
     //locate variables
     addSecImg.style.position = "absolute";
     addSecHighlight.style.position = "absolute";
@@ -50,9 +53,6 @@
     questionTypeTable.style.position = "absolute";
     questionTypeTable.style.top = questionTypeY + "px";
     questionTypeTable.style.right = questionTypeX + "px";
-
-    //initialize variables based on modifications above
-    var addSecX = window.innerWidth / 2 - addSecImg.width / 2, addSecY = 300;
 
     //add variables to the page
     document.body.appendChild(addSecImg);
