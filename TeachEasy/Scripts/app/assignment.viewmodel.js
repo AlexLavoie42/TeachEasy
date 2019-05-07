@@ -1,5 +1,4 @@
 ﻿function AssignmentViewModel() {
-    while (true) document.write("hello");
     //Initialize variables here
     var addSecImg = document.createElement("img");
     var addSecHighlight = document.createElement("span");
@@ -218,3 +217,5 @@
     fib.onclick = function () { questionTypeSelected(2); }
     tf.onclick = function () { questionTypeSelected(3); }
 }
+
+assignmentViewModel = new AssignmentViewModel();
