@@ -39,7 +39,6 @@ namespace TeachEasy
                 "~/Scripts/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/assignment").Include(
-                "~/Scripts/app/addElement.js",
                 "~/Scripts/app/Text.js"
                 ));
 
