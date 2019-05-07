@@ -107,6 +107,7 @@ var questionType;
 var questionTypeTable = document.getElementById("reqQuestionType");
 var questionTypeX = window.innerWidth / 100 * 30;
 var questionTypeY = 100;
+questionTypeTable.style.position = "absolute";
 questionTypeTable.style.top = questionTypeY + "px";
 questionTypeTable.style.right = questionTypeX + "px";
 
