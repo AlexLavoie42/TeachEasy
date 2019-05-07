@@ -9,3 +9,5 @@
 /TeachEasy/bin
 /TeachEasy/App_Data
 *.cache
+/.vs
+/TeachEasy/packages
