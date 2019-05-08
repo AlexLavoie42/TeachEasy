@@ -2,38 +2,27 @@
 
     padding-bottom: 20px;
 }
-
-.assignment {
-    background-color: grey;
-    height: 100px;
-    width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 150px;
-    border-radius: 25px;
+.home-content {
+    height: 750px;
+    display: table;
+    margin: 0 auto;
 }
 
-    .assignment p {
-        text-align: center;
-        vertical-align: center;
-        padding: 10px;
-    }
-
-.aboutus {
-    background-color: grey;
-    height: 100px;
-    width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 150px;
-    border-radius: 25px;
+.home-page-button-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    width: 200px;
 }
 
-    .aboutus p {
-        text-align: center;
-        vertical-align: center;
-        padding: 10px;
-    }
+.home-page-button {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(28, 184, 65);
+    display: block;
+    width: 200px;
+    margin: 10px;
+}
 
 #logo {
     position: absolute;
@@ -71,9 +60,13 @@ textarea {
     padding-top: 20px;
 }
 
+
 @media only screen and (max-width: 767px) {
     .nofloat {
         float: none;
         padding: 10px 15px;
     }
 }
+
+/* Log in styling */
+
