@@ -1,5 +1,5 @@
-﻿var quill = new Quill('#editor', {
-    theme: 'snow',
+﻿
+var quill = new Quill('#questionsList', {
     modules: {
         toolbar: '#toolbar'
     }
@@ -19,7 +19,7 @@ MathBlot.tagName = 'span';
 
 Quill.register(MathBlot);
 
-var customButton = document.querySelector('#custom-button');
+var customButton = document.querySelector('#MathButton');
 customButton.addEventListener('click', function () {
     let range = quill.getSelection(true);
     quill.insertText(range.index, '\n', Quill.sources.USER);
