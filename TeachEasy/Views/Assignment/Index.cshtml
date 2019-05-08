@@ -38,13 +38,11 @@
     <button class="ql-bold"></button>
     <button class="ql-italic"></button>
 
-    <button id="custom-button"></button>
+    <button id="custom-button">Math</button>
 </div>
 <div id="editor">
     <p>Hello World!</p>
     <p>Some initial <strong>bold</strong> text</p>
-
-    <p><br></p>
 </div>
 
 <form id="form">
@@ -59,34 +57,34 @@
     function draw() {
         try {
             // compile the expression once
-            const expression = document.getElementById('eq').value
-            const expr = math.compile(expression)
+            const expression = document.getElementById('eq').value;
+            const expr = math.compile(expression);
 
             // evaluate the expression repeatedly for different values of x
-            const xValues = math.range(-10, 10, 0.5).toArray()
+            const xValues = math.range(-10, 10, 0.5).toArray();
             const yValues = xValues.map(function (x) {
-                return expr.eval({ x: x })
-            })
+                return expr.eval({ x: x });
+            });
 
             // render the plot using plotly
             const trace1 = {
                 x: xValues,
                 y: yValues,
                 type: 'scatter'
-            }
-            const data = [trace1]
-            Plotly.newPlot('plot', data)
+            };
+            const data = [trace1];
+            Plotly.newPlot('plot', data);
         }
         catch (err) {
-            console.error(err)
-            alert(err)
+            console.error(err);
+            alert(err);
         }
     }
 
     document.getElementById('form').onsubmit = function (event) {
-        event.preventDefault()
-        draw()
-    }
+        event.preventDefault();
+        draw();
+    };
 
-    draw()
+    draw();
 </script>
