@@ -1,5 +1,7 @@
 ﻿function AssignmentViewModel() {
+
     //Initialize variables here
+
     var addSecImg = document.createElement("img");
     var addSecHighlight = document.createElement("span");
     var addSecSelected;//if the add-section icon is selected
@@ -16,6 +18,12 @@
     var questionTypeY = 100;
 
     var questionsListDiv = document.getElementById("questionsList");
+    var quill = new Quill('#questionsList', {
+        modules: {
+            toolbar: '#toolbar'
+        }
+    });
+
     var questionsArray = [
         "Write a paragraph to describe yourself.",
         "This answer is NOT an example of an animal: a. Alligator b. Giraffe c. Lion d. Rose",
@@ -57,6 +65,27 @@
     //add variables to the page
     document.body.appendChild(addSecImg);
     document.body.appendChild(addSecHighlight);
+
+    //Initialize math equations
+    let BlockEmbed = Quill.import('blots/block/embed');
+
+    class MathBlot extends BlockEmbed {
+        static create() {
+            let node = super.create();
+            MathLive.makeMathField(node);
+            return node;
+        }
+    }
+    MathBlot.blotName = 'math';
+    MathBlot.tagName = 'span';
+
+    Quill.register(MathBlot);
+
+    var mathButton = document.querySelector('#math');
+    mathButton.addEventListener('click', function () {
+        let range = quill.getSelection(true);
+        quill.insertEmbed(range.index, 'math', true, Quill.sources.USER);
+    });
 
     //Types of question answers
     const sectionTypes = {
@@ -135,10 +164,9 @@
     }
 
     function addQuestion() {
-        let question = document.createElement("div");
-        question.innerHTML = questionsArray[questionType];
-        questionDivs[questionsNum++] = question;
-        questionsListDiv.appendChild(questionDivs[questionsNum - 1]);
+        quill.insertText(quill.getLength, "\n");
+        quill.insertText(quill.getLength, "\n");
+        quill.insertText(quill.getLength, questionsArray[questionType]);
     }
 
     //Creates Math Graph
@@ -149,11 +177,6 @@
 
     //Updates specified graph
     function updateGraph(graph) {
-
-    }
-
-    //Creates math equation section
-    function createMath() {
 
     }
 
@@ -179,6 +202,12 @@
             el.style.filter = "alpha(opacity=" + op + ")";
             if (op == 100) window.clearInterval(interval);
         }, speed);
+    }
+
+    function getFocusedEditor() {
+        questionEditors.forEach(function (element) {
+            if (element.hasFocus) return element;
+        });
     }
 
     //Add Event listeners here
