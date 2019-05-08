@@ -14,6 +14,4 @@ namespace TeachEasy.Controllers
             return View();
         }
     }
-
-
 }
