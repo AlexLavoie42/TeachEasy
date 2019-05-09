@@ -46,21 +46,28 @@
     <p>Some initial <strong>bold</strong> text</p>
 </div>
 
-<form id="form">
-    <label for="eq">Enter an equation:</label>
-    <input type="text" id="eq" value="y=x" onkeyup="requestEquationInput()" />
-</form>
+<div id="graphInfo">
+    <form id="form">
+        <label for="eq">Enter an equation:</label>
+        <input type="text" id="eq" value="y=x" onkeyup="requestEquationInput()" />
+    </form>
+</div>
 
+<span id="equationErrLog" style="color: red"></span>
 <div id="plot"></div>
 
 <script>
     const expressionInput = document.getElementById('eq');
     var requestingEquationInput;//true if wait for equation input is happening
+    var equationInputWait;//how long the equation input has been waiting
+    var begString;//what the expression was before the user changed it
+    var equationErrLog = document.getElementById('equationErrLog');
 
     function draw() {
         try {
             // compile the expression once
             const expression = expressionInput.value;
+            begString = expression;//begString gets updated every draw()
             const expr = math.compile(expression);
 
             // evaluate the expression repeatedly for different values of x
@@ -77,10 +84,12 @@
             };
             const data = [trace1];
             Plotly.newPlot('plot', data);
+            equationLog.innerHTML = "";
         }
         catch (err) {
-            console.error(err);
-            alert(err);
+            //this automanically may happen, so don't let this specific error appear
+            if(err.toString() != "ReferenceError: equationLog is not defined")
+                equationErrLog.innerHTML = err;
         }
     }
 
@@ -89,40 +98,32 @@
     function requestEquationInput() {
         if (!requestingEquationInput) {
             requestingEquationInput = true;
+            equationInputWait = 0;
 
-            let begString = expressionInput.value;
-            let curString;
+            //the updated expression string
+            let curString = expressionInput.value;
 
-            let wait = 0;
             let interval = window.setInterval(function () {
-                wait++;
+                equationInputWait++;
 
-                curString = expressionInput.value;
-
-                //clear the waiting process and do nothing if the equation isn't changed by the end of the wait
-                if (wait == 10 && begString == curString) {
+                //if the wait is complete and the equation isn't changed, do nothing
+                if (equationInputWait == 10 && curString == begString) {
+                    equationInputWait = 0;
                     requestingEquationInput = false;
                     window.clearInterval(interval);
                 }
-                //draw the equation onto the graph if the equation has been changed
-                else if (wait == 10 && begString != curString) {
-                    if (testEquation)
-                        draw();
 
+                //otherwise, if the wait is complete and the equation is changed, draw()
+                else if (equationInputWait == 10 && curString != begString) {
+                    equationInputWait = 0;
                     requestingEquationInput = false;
+                    draw();
                     window.clearInterval(interval);
                 }
             }, 100);
+        } else {//if the user keeps typing while the input is waiting, restart the wait
+            equationInputWait = 0;
         }
-    }
-
-    //returns true if the equation can be drawn onto the board
-    function testEquation() {
-        let boolean = true;
-
-        
-
-        return boolean;
     }
 
     draw();

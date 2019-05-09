@@ -1,3 +1,18 @@
 ﻿body {
     
 }
+
+#graphInfo{
+    background-color: white;
+    border: solid blue 2px;
+    border-radius: 10px;
+    position: relative;
+    left: 50px;
+}
+
+#graphInfo input{
+    border: solid blue 2px;
+    border-radius: 5px;
+    background-color: #2f2f2f;
+    color:white;
+}
