@@ -253,12 +253,10 @@
     <Content Include="Global.asax" />
     <Content Include="images\addSec.png" />
     <Content Include="Scripts\app\assignment.viewmodel.js" />
-    <Content Include="Scripts\app\Text.js" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\common.js" />
-    <Content Include="Scripts\app\home.viewmodel.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
