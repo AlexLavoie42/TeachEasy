@@ -49,12 +49,65 @@
 <div id="graphInfo">
     <form id="form">
         <label for="eq">Enter an equation:</label>
-        <input type="text" id="eq" value="y=x" onkeyup="requestEquationInput()" />
+        <input type="text" id="eq" value="y=x" onkeyup="requestEquationInput()" onfocus="toggleKeyboard()" />
     </form>
 </div>
 
 <span id="equationErrLog" style="color: red"></span>
 <div id="plot"></div>
+
+<!--This appears when the user is typing an equation for the graph-->
+<table id="keyboard">
+    <tr>
+    <td id="ac">AC</td>
+    <td id="exp">x<sup>y</sup></td>
+    <td id="fac">x!</td>
+    <td id="pi">&pi;</td>
+    <td id="lBrack">(</td>
+    <td id="rBrack">)</td>
+    <td id="modulus">%</td>
+    </tr>
+
+    <tr>
+    <td id="clear">C</td>
+    <td id="sroot">&radic;</td>
+    <td id="expSroot"><sup>x</sup>&radic;</td>
+    <td id="7">7</td>
+    <td id="8">8</td>
+    <td id="9">9</td>
+    <td id="div">&#247;</td>
+    </tr>
+
+    <tr>
+    <td id="sin">sin</td>
+    <td id="cos">cos</td>
+    <td id="tan">tan</td>
+    <td id="4">4</td>
+    <td id="5">5</td>
+    <td id="6">6</td>
+    <td id="mult">&#215;</td>
+    </tr>
+
+    <tr>
+    <td id="log">log</td>
+    <td id="ln">ln</td>
+    <td id="e">e</td>
+    <td id="1">1</td>
+    <td id="2">2</td>
+    <td id="3">3</td>
+    <td id="sub">-</td>
+    </tr>
+
+    <tr>
+    <td id="rad">Rad</td>
+    <td id="deg">Deg</td>
+    <td id="ans">Ans</td>
+    <td id="decimal">.</td>
+    <td id="0">0</td>
+    <td id="plus">+</td>
+    <td id="equals">=</td>
+    </tr>
+</table>
 
 <script>
     const expressionInput = document.getElementById('eq');
@@ -84,7 +137,7 @@
             };
             const data = [trace1];
             Plotly.newPlot('plot', data);
-            equationLog.innerHTML = "";
+            equationErrLog.innerHTML = "";
         }
         catch (err) {
             //this automanically may happen, so don't let this specific error appear
@@ -127,4 +180,108 @@
     }
 
     draw();
+
+    //MATH KEYBOARD//////
+    //variables for all keys
+    var clearAllKey = document.getElementById("ac");
+    var exponentKey = document.getElementById("exp");
+    var factorialKey = document.getElementById("fac");
+    var piKey = document.getElementById("pi");
+    var leftBracketKey = document.getElementById("lBracket");
+    var rightBracketKey = document.getElementById("rBracket");
+    var modulusKey = document.getElementById("modulus");
+    var clearKey = document.getElementById("clear");
+    var squareRootKey = document.getElementById("sroot");
+    var expSquareRootKey = document.getElementById("expSroot");
+    var sevenKey = document.getElementById("7");
+    var eightKey = document.getElementById("8");
+    var nineKey = document.getElementById("9");
+    var divisionKey = document.getElementById("div");
+    var sinKey = document.getElementById("sin");
+    var cosKey = document.getElementById("cos");
+    var tanKey = document.getElementById("tan");
+    var fourKey = document.getElementById("4");
+    var fiveKey = document.getElementById("5");
+    var sixKey = document.getElementById("6");
+    var multiplyKey = document.getElementById("mult");
+    var logKey = document.getElementById("log");
+    var lnKey = document.getElementById("ln");
+    var eKey = document.getElementById("e");
+    var oneKey = document.getElementById("1");
+    var twoKey = document.getElementById("2");
+    var three = document.getElementById("3");
+    var subtractKey = document.getElementById("sub");
+    var radientKey = document.getElementById("rad");
+    var degreeKey = document.getElementById("deg");
+    var ansKey = document.getElementById("ans");
+    var decimalKey = document.getElementById("decimal");
+    var zeroKey = document.getElementById("0");
+    var plusKey = document.getElementById("plus");
+    var equalsKey = document.getElementById("equals");
+
+    //returns the px representation of the percent argument in relation to height
+    function getHeightByPercent(percent) {
+        return window.innerHeight / 100 * percent;
+    }
+
+    //the y position of the keyboard
+    const endPageY = window.innerHeight;
+    var keyboard = document.getElementById("keyboard");
+    keyboard.style.top = endPageY + "px";
+
+    //pulls up/down the virtual keyboard
+    var keyboardDisplay;
+    var keyboardToggling;//if the keyboard is being pulled up or down
+    function toggleKeyboard() {
+        let dy;//endPageY - this = position of keyboard
+        let scrollY = window.scrollY;
+
+        if (!keyboardToggling) {
+            keyboardToggling = true;
+
+            if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
+                dy = 0;
+
+                let interval = window.setInterval(function () {
+                    dy += 2;
+                    keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
+                    document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
+                    window.scrollTo(0, scrollY + getHeightByPercent(dy));
+
+                    if (dy == 40) {
+                        keyboardToggling = false;
+                        keyboardDisplay = true;
+                        window.clearInterval(interval);
+                    }
+                }, 25);
+            } else {//if the keyboard is displayed, pull it down
+                dy = 40;
+
+                let interval = window.setInterval(function () {
+                    dy -= 2;
+                    keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
+                    document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
+                    window.scrollTo(0, scrollY + getHeightByPercent(dy));
+
+                    if (dy == 0) {
+                        keyboardToggling = false;
+                        keyboardDisplay = false;
+                        window.clearInterval(interval);
+                    }
+                }, 25);
+            }
+        }
+    }
+
+    //add event listeners for the keys so that the virtual keys get highlighted
+    window.onkeydown = function (e) {
+        switch (e.key) {
+            case '0':
+
+        }
+    };
+
+    window.onkeyup = function (e) {
+
+    };
 </script>
