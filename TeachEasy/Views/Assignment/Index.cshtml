@@ -6,6 +6,7 @@
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" src="../../Content/Graph.css" />
 
     <script src="https://unpkg.com/mathjs@5.9.0/dist/math.min.js"></script>
 
@@ -47,17 +48,19 @@
 
 <form id="form">
     <label for="eq">Enter an equation:</label>
-    <input type="text" id="eq" value="4 * sin(x) + 5 * cos(x/2)" />
-    <input type="submit" value="Draw" />
+    <input type="text" id="eq" value="y=x" onkeyup="requestEquationInput()" />
 </form>
 
 <div id="plot"></div>
 
 <script>
+    const expressionInput = document.getElementById('eq');
+    var requestingEquationInput;//true if wait for equation input is happening
+
     function draw() {
         try {
             // compile the expression once
-            const expression = document.getElementById('eq').value;
+            const expression = expressionInput.value;
             const expr = math.compile(expression);
 
             // evaluate the expression repeatedly for different values of x
@@ -81,10 +84,46 @@
         }
     }
 
-    document.getElementById('form').onsubmit = function (event) {
-        event.preventDefault();
-        draw();
-    };
+    /*waits a second to check if the user is still typing out the graph equation. If
+     * not, update the graph. */
+    function requestEquationInput() {
+        if (!requestingEquationInput) {
+            requestingEquationInput = true;
+
+            let begString = expressionInput.value;
+            let curString;
+
+            let wait = 0;
+            let interval = window.setInterval(function () {
+                wait++;
+
+                curString = expressionInput.value;
+
+                //clear the waiting process and do nothing if the equation isn't changed by the end of the wait
+                if (wait == 10 && begString == curString) {
+                    requestingEquationInput = false;
+                    window.clearInterval(interval);
+                }
+                //draw the equation onto the graph if the equation has been changed
+                else if (wait == 10 && begString != curString) {
+                    if (testEquation)
+                        draw();
+
+                    requestingEquationInput = false;
+                    window.clearInterval(interval);
+                }
+            }, 100);
+        }
+    }
+
+    //returns true if the equation can be drawn onto the board
+    function testEquation() {
+        let boolean = true;
+
+        
+
+        return boolean;
+    }
 
     draw();
 </script>
