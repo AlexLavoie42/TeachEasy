@@ -72,6 +72,7 @@
     class MathBlot extends BlockEmbed {
         static create() {
             let node = super.create();
+            node.textContent += "x";
             MathLive.makeMathField(node);
             return node;
         }
@@ -164,8 +165,7 @@
     }
 
     function addQuestion() {
-        quill.insertText(quill.getLength, "\n");
-        quill.insertText(quill.getLength, "\n");
+        quill.insertText(quill.getLength, '\n');
         quill.insertText(quill.getLength, questionsArray[questionType]);
     }
 

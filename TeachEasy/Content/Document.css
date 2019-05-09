@@ -48,3 +48,11 @@
     background-color: #FF6F69;
     color: white;
 }
+
+.ql-editor p{
+    display: inline-block;
+}
+
+.ql-editor span {
+    display: inline-block;
+}
