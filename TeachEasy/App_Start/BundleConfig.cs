@@ -39,11 +39,15 @@ namespace TeachEasy
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/bootstrap.bundle.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/assignment").Include(
+                "~/Scripts/app/assignment.viewmodel.js"
+                ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                 "~/Content/Site.css",
                  "~/Content/bootstrap.css",
                  "~/Content/bootstrap.min.css",
-                 "~/Content/simple-sidebar.css",
-                 "~/Content/Site.css")
+                 "~/Content/simple-sidebar.css")
                  );
         }
     }

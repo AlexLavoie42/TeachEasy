@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="../../Content/Document.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/mathlive/dist/mathlive.core.css">
+<link rel="stylesheet" href="https://unpkg.com/mathlive/dist/mathlive.css">
+<div id="toolbar">
+    <div id="font_format">
+        <select id="font">
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+        <select id="color">
+            <option value="black">Black</option>
+        </select>
+    </div>
+    <div id="question_modifiers">
+        <button type="button">Question Options</button>
+        <button type="button" id="math">Math Equation</button>
+        <button type="button">Insert Graph</button>
+    </div>
+    <div id="misc">
+        <button type="button">Export As...</button>
+    </div>
+</div>
+
+<div id="reqQuestionType" class="infoBox">
+    <form>
+        <button id="written" class="button" type="button">Written</button><br />
+        <button id="mc" class="button" type="button">Multiple Choice</button><br />
+        <button id="fib" class="button" type="button">Fill in Blank</button><br />
+        <button id="tf" class="button" type="button">True/False</button>
+    </form>
+</div>
+
+<div id="graphInfo" class="infoBox">
+    <input type="text" placeholder="y = x" /><br /><br /><br />
+    <button type="button">Virtual keyboard</button>
+</div>
+
+<div id="question_section">
+    <button id="addSection">Add Question</button>
+</div>
+
+<div id="questionsList"></div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<!--><script src="https://unpkg.com/mathlive"></script>
+@Scripts.Render("~/bundles/assignment")
