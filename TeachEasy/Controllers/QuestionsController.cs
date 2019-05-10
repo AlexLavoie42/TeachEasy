@@ -87,10 +87,15 @@ namespace TeachEasy.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,QuestionText,Answer,IsPublic,SubjectId,AuthorId,Token,Ip,MacAddress,CreatedAt,ModifiedAt")] Question question)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,QuestionText,Answer,IsPublic,SubjectId,CreatedAt,Token")] Question question)
         {
             if (ModelState.IsValid)
             {
+                question.ModifiedAt = DateTime.Now;
+                question.AuthorId = System.Web.HttpContext.Current.User.Identity.Name;
+                question.Ip = GetIPAddress();
+                question.MacAddress = GetMacAddress();
+
                 db.Entry(question).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
