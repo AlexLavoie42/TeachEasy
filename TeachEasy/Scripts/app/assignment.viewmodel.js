@@ -82,6 +82,22 @@
 
     Quill.register(MathBlot);
 
+    class QuestionBlot extends BlockEmbed {
+        static create() {
+            let question = document.createElement('div');
+            questionDivs[questionsNum++] = question;
+            question.className = 'question';
+
+            question.appendChild(document.createTextNode(questionsArray[questionType]));
+            question.appendChild(document.createElement('div'));
+            return question;
+        }
+    }
+    QuestionBlot.blotName = 'question';
+    QuestionBlot.tagName = 'div';
+
+    Quill.register(QuestionBlot);
+
     var mathButton = document.querySelector('#math');
     mathButton.addEventListener('click', function () {
         let range = quill.getSelection(true);
@@ -125,8 +141,7 @@
     }
 
     function addQuestion() {
-        quill.insertText(quill.getLength, '\n');
-        quill.insertText(quill.getLength, questionsArray[questionType]);
+        quill.insertEmbed(questionsNum + 1, 'question', true, Quill.sources.USER);
     }
 
     //Creates Math Graph
