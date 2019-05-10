@@ -83,11 +83,11 @@ namespace TeachEasy
             //    appId: "",
             //    appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+           app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+           {
+               ClientId = "183118230993-vg0m3enh1g7hmastg9pahpou6vv7u7ke.apps.googleusercontent.com",
+               ClientSecret = "-6Qmn7iMU8T6MZkhDBKZYld7"
+           });
         }
     }
 }
