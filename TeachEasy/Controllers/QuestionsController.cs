@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TeachEasy.Models;
+using System.Net.NetworkInformation;
 
 namespace TeachEasy.Controllers
 {
@@ -47,10 +48,17 @@ namespace TeachEasy.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Token,QuestionText,Answer,AuthorId,IsPublic,SubjectId,CreatedAt,ModifiedAt,Ip,MacAddress")] Question question)
+        public async Task<ActionResult> Create([Bind(Include = "Id,QuestionText,Answer,IsPublic,SubjectId")] Question question)
         {
             if (ModelState.IsValid)
             {
+                question.CreatedAt = DateTime.Now;
+                question.ModifiedAt = DateTime.Now;
+                question.Token = new Random().Next();
+                question.AuthorId = System.Web.HttpContext.Current.User.Identity.Name;
+                question.Ip = GetIPAddress();
+                question.MacAddress = GetMacAddress();
+
                 db.Questions.Add(question);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -79,7 +87,7 @@ namespace TeachEasy.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Token,QuestionText,Answer,AuthorId,IsPublic,SubjectId,CreatedAt,ModifiedAt,Ip,MacAddress")] Question question)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,QuestionText,Answer,IsPublic,SubjectId,AuthorId,Token,Ip,MacAddress,CreatedAt,ModifiedAt")] Question question)
         {
             if (ModelState.IsValid)
             {
@@ -123,6 +131,33 @@ namespace TeachEasy.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private string GetIPAddress()
+        {
+            System.Web.HttpContext context = System.Web.HttpContext.Current;
+            string ipList = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+            if (!string.IsNullOrEmpty(ipList))
+            {
+                return ipList.Split(',')[0];
+            }
+
+            return context.Request.ServerVariables["REMOTE_ADDR"];
+        }
+
+        private string GetMacAddress()
+        {
+            string addr = "";
+            foreach (NetworkInterface n in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (n.OperationalStatus == OperationalStatus.Up)
+                {
+                    addr += n.GetPhysicalAddress().ToString();
+                    break;
+                }
+            }
+            return addr;
         }
     }
 }

@@ -12,16 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Token)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.QuestionText)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Answer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthorId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsPublic)
@@ -30,10 +24,10 @@
             @Html.DisplayNameFor(model => model.SubjectId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedAt)
+            @Html.DisplayNameFor(model => model.AuthorId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedAt)
+            @Html.DisplayNameFor(model => model.Token)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ip)
@@ -41,22 +35,22 @@
         <th>
             @Html.DisplayNameFor(model => model.MacAddress)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedAt)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Token)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.QuestionText)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Answer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AuthorId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsPublic)
@@ -65,16 +59,22 @@
             @Html.DisplayFor(modelItem => item.SubjectId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedAt)
+            @Html.DisplayFor(modelItem => item.AuthorId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ModifiedAt)
+            @Html.DisplayFor(modelItem => item.Token)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Ip)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MacAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedAt)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
