@@ -51,16 +51,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="~/Views/Home/_Home.cshtml">Home <span class="sr-only">(current)</span></a>
+                            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="">Assignment Editor</a>
+                            @Html.ActionLink("Assignment Editor", "Index", "Assignment", new { area = "" }, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="~/Views/Account/">About us</a>
+                            @Html.ActionLink("About Us", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Sign in</a>
+                            @Html.ActionLink("Sign in", "Login", "Account", new { area = "" }, new { @class = "nav-link" })
                         </li>
 
                         <!--
