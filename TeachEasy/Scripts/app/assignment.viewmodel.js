@@ -88,8 +88,14 @@
             questionDivs[questionsNum++] = question;
             question.className = 'question';
 
+            let answer = document.createElement('div');
+            answer.appendChild(document.createElement('br'));
+            answer.appendChild(document.createElement('br'));
+            answer.appendChild(document.createElement('br'));
+
+            question.appendChild(document.createElement('br')); 
             question.appendChild(document.createTextNode(questionsArray[questionType]));
-            question.appendChild(document.createElement('div'));
+            question.appendChild(answer);
             return question;
         }
     }
