@@ -30,5 +30,7 @@ namespace TeachEasy.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<TeachEasy.Models.Question> Questions { get; set; }
     }
 }
