@@ -1,4 +1,5 @@
-﻿<head>
+﻿<!DOCTYPE html>
+<head>
     <title>math.js | plot</title>
     <link rel="stylesheet" href="https://unpkg.com/mathlive/dist/mathlive.core.css">
     <link rel="stylesheet" href="https://unpkg.com/mathlive/dist/mathlive.css">
@@ -48,8 +49,8 @@
 
 <div id="graphInfo">
     <form id="form">
-        <label for="eq">Enter an equation:</label>
-        <input type="text" id="eq" value="y=x" onkeyup="requestEquationInput()" onfocus="toggleKeyboard()" />
+        <label for="eq">Enter an equation: y=</label>
+        <input type="text" id="eq" value="x" onkeyup="requestEquationInput()" onclick="toggleKeyboard()"/>
     </form>
 </div>
 
@@ -59,53 +60,52 @@
 <!--This appears when the user is typing an equation for the graph-->
 <table id="keyboard">
     <tr>
-    <td id="ac">AC</td>
-    <td id="exp">x<sup>y</sup></td>
-    <td id="fac">x!</td>
-    <td id="pi">&pi;</td>
-    <td id="lBrack">(</td>
-    <td id="rBrack">)</td>
-    <td id="modulus">%</td>
+    <td id="ac" onclick="clearEquation()">AC</td>
+    <td id="exp" onclick="insertKeyToEquation('^')">x<sup>y</sup></td>
+    <td id="fac" onclick="insertKeyToEquation('!')">x!</td>
+    <td id="pi" onclick="insertKeyToEquation('pi')">&pi;</td>
+    <td id="lBrack" onclick="insertKeyToEquation('(')">(</td>
+    <td id="rBrack" onclick="insertKeyToEquation(')')">)</td>
+    <td id="modulus" onclick="toggleKeyboard()">&#8595;</td>
     </tr>
 
     <tr>
-    <td id="clear">C</td>
-    <td id="sroot">&radic;</td>
-    <td id="expSroot"><sup>x</sup>&radic;</td>
-    <td id="7">7</td>
-    <td id="8">8</td>
-    <td id="9">9</td>
-    <td id="div">&#247;</td>
+    <td id="clear" onclick="clearLastKeyEquation()">C</td>
+    <td id="sroot" onclick="insertKeyToEquation('sqrt(')">&radic;</td>
+    <td id="cubeRoot" onclick="insertKeyToEquation('cbrt(')"><sup>3</sup>&radic;</td>
+    <td id="7" onclick="insertKeyToEquation('7')">7</td>
+    <td id="8" onclick="insertKeyToEquation('8')">8</td>
+    <td id="9" onclick="insertKeyToEquation('9')">9</td>
+    <td id="modulus" onclick="insertKeyToEquation('%')">%</td>
     </tr>
 
     <tr>
-    <td id="sin">sin</td>
-    <td id="cos">cos</td>
-    <td id="tan">tan</td>
-    <td id="4">4</td>
-    <td id="5">5</td>
-    <td id="6">6</td>
-    <td id="mult">&#215;</td>
+    <td id="sin" onclick="insertKeyToEquation('sin(')">sin</td>
+    <td id="cos" onclick="insertKeyToEquation('cos(')">cos</td>
+    <td id="tan" onclick="insertKeyToEquation('tan(')">tan</td>
+    <td id="4" onclick="insertKeyToEquation('4')">4</td>
+    <td id="5" onclick="insertKeyToEquation('5')">5</td>
+    <td id="6" onclick="insertKeyToEquation('6')">6</td>
+    <td id="div" onclick="insertKeyToEquation('/')">&#247;</td>
     </tr>
 
     <tr>
-    <td id="log">log</td>
-    <td id="ln">ln</td>
-    <td id="e">e</td>
-    <td id="1">1</td>
-    <td id="2">2</td>
-    <td id="3">3</td>
-    <td id="sub">-</td>
+    <td id="log" onclick="insertKeyToEquation('log(')">log</td>
+    <td id="ln" onclick="insertKeyToEquation('log()/log(e)\r\r\r')">ln</td>
+    <td id="e" onclick="insertKeyToEquation('e')">e</td>
+    <td id="1" onclick="insertKeyToEquation('1')">1</td>
+    <td id="2" onclick="insertKeyToEquation('2')">2</td>
+    <td id="3" onclick="insertKeyToEquation('3')">3</td>
+    <td id="mult" onclick="insertKeyToEquation('*')">&#215;</td>
     </tr>
 
-    <tr>
-    <td id="rad">Rad</td>
-    <td id="deg">Deg</td>
-    <td id="ans">Ans</td>
-    <td id="decimal">.</td>
-    <td id="0">0</td>
-    <td id="plus">+</td>
-    <td id="equals">=</td>
+    <tr style="text-align: center">
+    <td id="x" onclick="insertKeyToEquation('x')">x</td>
+    <td id="decimal" onclick="insertKeyToEquation('.')">.</td>
+    <td id="0" onclick="insertKeyToEquation('0')">0</td>
+    <td id="plus" onclick="insertKeyToEquation('+')">+</td>
+    <td id="equals" onclick="insertKeyToEquation('=')">=</td>
+    <td id="sub" onclick="insertKeyToEquation('-')">-</td>
     </tr>
 </table>
 
@@ -119,7 +119,7 @@
     function draw() {
         try {
             // compile the expression once
-            const expression = expressionInput.value;
+            const expression = "y=" + expressionInput.value;
             begString = expression;//begString gets updated every draw()
             const expr = math.compile(expression);
 
@@ -154,7 +154,7 @@
             equationInputWait = 0;
 
             //the updated expression string
-            let curString = expressionInput.value;
+            let curString = "y=" + expressionInput.value;
 
             let interval = window.setInterval(function () {
                 equationInputWait++;
@@ -192,7 +192,7 @@
     var modulusKey = document.getElementById("modulus");
     var clearKey = document.getElementById("clear");
     var squareRootKey = document.getElementById("sroot");
-    var expSquareRootKey = document.getElementById("expSroot");
+    var cubeRootKey = document.getElementById("cubeRoot");
     var sevenKey = document.getElementById("7");
     var eightKey = document.getElementById("8");
     var nineKey = document.getElementById("9");
@@ -209,11 +209,8 @@
     var eKey = document.getElementById("e");
     var oneKey = document.getElementById("1");
     var twoKey = document.getElementById("2");
-    var three = document.getElementById("3");
+    var threeKey = document.getElementById("3");
     var subtractKey = document.getElementById("sub");
-    var radientKey = document.getElementById("rad");
-    var degreeKey = document.getElementById("deg");
-    var ansKey = document.getElementById("ans");
     var decimalKey = document.getElementById("decimal");
     var zeroKey = document.getElementById("0");
     var plusKey = document.getElementById("plus");
@@ -246,7 +243,6 @@
                     dy += 2;
                     keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
                     document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
-                    window.scrollTo(0, scrollY + getHeightByPercent(dy));
 
                     if (dy == 40) {
                         keyboardToggling = false;
@@ -261,7 +257,6 @@
                     dy -= 2;
                     keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
                     document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
-                    window.scrollTo(0, scrollY + getHeightByPercent(dy));
 
                     if (dy == 0) {
                         keyboardToggling = false;
@@ -273,15 +268,135 @@
         }
     }
 
+    function highlightKey(key, color) {
+        if (keyboardDisplay) {
+            switch (key) {
+                case '^':
+                    exponentKey.style.backgroundColor = color;
+                    break;
+                case '!':
+                    factorialKey.style.backgroundColor = color;
+                    break;
+                case '(':
+                    leftBracketKey.style.backgroundColor = color;
+                    break;
+                case ')':
+                    rightBracketKey.style.backgroundColor = color;
+                    break;
+                case '%':
+                    modulusKey.style.backgroundColor = color;
+                    break;
+                case '7':
+                    sevenKey.style.backgroundColor = color;
+                    break;
+                case '8':
+                    eightKey.style.backgroundColor = color;
+                    break;
+                case '9':
+                    nineKey.style.backgroundColor = color;
+                    break;
+                case '/':
+                    divisionKey.style.backgroundColor = color;
+                    break;
+                case '4':
+                    fourKey.style.backgroundColor = color;
+                    break;
+                case '5':
+                    fiveKey.style.backgroundColor = color;
+                    break;
+                case '6':
+                    sixKey.style.backgroundColor = color;
+                    break;
+                case '*':
+                case 'x':
+                    multiplyKey.style.backgroundColor = color;
+                    break;
+                case 'e':
+                    eKey.style.backgroundColor = color;
+                    break;
+                case '1':
+                    oneKey.style.backgroundColor = color;
+                    break;
+                case '2':
+                    twoKey.style.backgroundColor = color;
+                    break;
+                case '3':
+                    threeKey.style.backgroundColor = color;
+                    break;
+                case '-':
+                    subtractKey.style.backgroundColor = color;
+                    break;
+                case '.':
+                    decimalKey.style.backgroundColor = color;
+                    break;
+                case '0':
+                    zeroKey.style.backgroundColor = color;
+                    break;
+                case '+':
+                    plusKey.style.backgroundColor = color;
+                    break;
+                case '=':
+                    equalsKey.style.backgroundColor = color;
+                    break;
+            }
+        }
+    }
+
+    var grey = "#d4d4d4";
+    var darkGrey = "#808080";
+
     //add event listeners for the keys so that the virtual keys get highlighted
     window.onkeydown = function (e) {
-        switch (e.key) {
-            case '0':
-
-        }
+        highlightKey(e.key, darkGrey);
     };
 
     window.onkeyup = function (e) {
-
+        highlightKey(e.key, grey);
     };
+
+    function insertKeyToEquation(key) {
+        expressionInput.value += key;
+        requestEquationInput();
+        expressionInput.focus();
+    }
+
+    function clearLastKeyEquation() {
+        expressionInput.value = expressionInput.value.substring(0, expressionInput.value.length - 1);
+
+        //check if the last value inputted is a keyword. If so, delete the keyword
+        if (expressionInput.value.length == 3)//if there are only 3 characters, check for keyword
+            clearKeyword(0);
+        else if (expressionInput.value.length >= 4) {
+            if (!clearKeyword(1))
+                clearKeyword(0);//if no 4-letter keyword is found, check for a 3-letter keyword
+        }
+    }
+
+    //clears keywords. If param == 0, it clears any 3-letter keywords, if == 1, clears 4-letter keywords
+    //returns true if a keyword is cleared
+    function clearKeyword(val) {
+        if (val == 0)
+            switch (expressionInput.value.substring(expressionInput.value.length - 3, expressionInput.value.length)) {
+                case 'sin':
+                case 'cos':
+                case 'tan':
+                case 'log':
+                    expressionInput.value = expressionInput.value.substring(0, expressionInput.value.length - 3);
+                    return true;
+            }
+        else
+            switch (expressionInput.value.substring(expressionInput.value.length - 4, expressionInput.value.length)) {
+                case 'sqrt':
+                case 'cbrt':
+                    expressionInput.value = expressionInput.value.substring(0, expressionInput.value.length - 4);
+                    return true;
+            }
+
+        return false;
+    }
+
+    function clearEquation() {
+        expressionInput.value = "y=x";
+        requestEquationInput();
+    }
 </script>
