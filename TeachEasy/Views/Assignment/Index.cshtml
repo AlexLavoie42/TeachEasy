@@ -370,6 +370,8 @@
             if (!clearKeyword(1))
                 clearKeyword(0);//if no 4-letter keyword is found, check for a 3-letter keyword
         }
+
+        expressionInput.focus();
     }
 
     //clears keywords. If param == 0, it clears any 3-letter keywords, if == 1, clears 4-letter keywords
@@ -398,5 +400,6 @@
     function clearEquation() {
         expressionInput.value = "y=x";
         requestEquationInput();
+        expressionInput.focus();
     }
 </script>
