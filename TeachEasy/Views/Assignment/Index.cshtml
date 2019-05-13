@@ -36,6 +36,7 @@
 @section Scripts{
     @Scripts.Render("~/bundles/text")
 }
+@Styles.Render("~/Content/Graph.css")
 <div id="toolbar">
     <button class="ql-bold"></button>
     <button class="ql-italic"></button>
@@ -99,7 +100,7 @@
     <td id="mult" onclick="insertKeyToEquation('*')">&#215;</td>
     </tr>
 
-    <tr style="text-align: center">
+    <tr style="position: relative; left: 6.25%">
     <td id="x" onclick="insertKeyToEquation('x')">x</td>
     <td id="decimal" onclick="insertKeyToEquation('.')">.</td>
     <td id="0" onclick="insertKeyToEquation('0')">0</td>
@@ -216,7 +217,11 @@
     var plusKey = document.getElementById("plus");
     var equalsKey = document.getElementById("equals");
 
-    //returns the px representation of the percent argument in relation to height
+    //returns the px representation of the percent argument
+    function getWidthByPercent(percent) {
+        return window.innerWidth / 100 * percent;
+    }
+
     function getHeightByPercent(percent) {
         return window.innerHeight / 100 * percent;
     }
@@ -225,48 +230,6 @@
     const endPageY = window.innerHeight;
     var keyboard = document.getElementById("keyboard");
     keyboard.style.top = endPageY + "px";
-
-    //pulls up/down the virtual keyboard
-    var keyboardDisplay;
-    var keyboardToggling;//if the keyboard is being pulled up or down
-    function toggleKeyboard() {
-        let dy;//endPageY - this = position of keyboard
-        let scrollY = window.scrollY;
-
-        if (!keyboardToggling) {
-            keyboardToggling = true;
-
-            if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
-                dy = 0;
-
-                let interval = window.setInterval(function () {
-                    dy += 2;
-                    keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
-                    document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
-
-                    if (dy == 40) {
-                        keyboardToggling = false;
-                        keyboardDisplay = true;
-                        window.clearInterval(interval);
-                    }
-                }, 25);
-            } else {//if the keyboard is displayed, pull it down
-                dy = 40;
-
-                let interval = window.setInterval(function () {
-                    dy -= 2;
-                    keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
-                    document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
-
-                    if (dy == 0) {
-                        keyboardToggling = false;
-                        keyboardDisplay = false;
-                        window.clearInterval(interval);
-                    }
-                }, 25);
-            }
-        }
-    }
 
     function highlightKey(key, color) {
         if (keyboardDisplay) {
@@ -398,8 +361,55 @@
     }
 
     function clearEquation() {
-        expressionInput.value = "y=x";
+        expressionInput.value = "x";
         requestEquationInput();
         expressionInput.focus();
+    }
+
+    //pulls up/down the virtual keyboard
+    var mobile;//if the screen is mobile. If so, only the phone keyboard is used.
+    var keyboardDisplay;
+    var keyboardToggling;//if the keyboard is being pulled up or down
+    function toggleKeyboard() {
+        if (!mobile) {
+            let dy;//endPageY - this = position of keyboard
+            let scrollY = window.scrollY;
+
+            if (!keyboardToggling) {
+                keyboardToggling = true;
+
+                if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
+                    dy = 0;
+
+                    let interval = window.setInterval(function () {
+                        dy += 4;
+                        keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
+                        document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
+
+                        if (dy == 40) {
+                            keyboardToggling = false;
+                            keyboardDisplay = true;
+                            window.clearInterval(interval);
+                        }
+                    }, 25);
+                } else {//if the keyboard is displayed, pull it down
+                    dy = 40;
+
+                    let interval = window.setInterval(function () {
+                        dy -= 4;
+                        keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
+                        document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
+
+                        if (dy == 0) {
+                            keyboardToggling = false;
+                            keyboardDisplay = false;
+                            window.clearInterval(interval);
+                        }
+                    }, 25);
+                }
+            }
+        } else {
+
+        }
     }
 </script>
