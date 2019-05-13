@@ -11,6 +11,7 @@ namespace TeachEasy.Controllers
         // GET: Assignment
         public ActionResult Index()
         {
+            ViewBag.ShowSideBar = true;
             return View();
         }
 

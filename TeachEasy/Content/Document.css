@@ -30,6 +30,7 @@
 }
 
 .button {
+    
     background-color: white; /* Green */
     border: 2px solid #FF6F69;
     color: black;
@@ -56,3 +57,7 @@
 .ql-editor span {
     display: inline-block;
 }
+
+
+/*bootstrap overrides*/
+

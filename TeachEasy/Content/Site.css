@@ -1,7 +1,8 @@
 ﻿body {
-
+    height: 750px;
     padding-bottom: 20px;
 }
+
 .home-content {
     height: 750px;
     display: table;
@@ -25,6 +26,7 @@ a.home-page-button {
     width: 200px;
     height: 40px;
 }
+
 a.home-page-button:hover {
     text-decoration: none;
     color: white;
@@ -39,6 +41,7 @@ a.home-page-button:hover {
     margin-right: auto;
 }
 
+
 /** Bootstrap Overrides **/
 
 
@@ -46,6 +49,23 @@ a.home-page-button:hover {
 .navbar-collapse collapse show {
     position: absolute;
 }
+
+
+/*Assignment page css*/
+
+#asgn-page-content {
+    height: 800px;
+}
+.side-button {
+    width: 170px;
+    padding-top: 0px;
+}
+
+#font-header {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
 
 
 /****bootstrap code below, edit at your own risk**************************************/
