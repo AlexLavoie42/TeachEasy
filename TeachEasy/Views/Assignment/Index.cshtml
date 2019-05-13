@@ -53,7 +53,7 @@
     <button type="button" id="insertGraph">Insert graph</button>
 </form>
 
-<div class="graphInfo">
+<div id="graphInfo" style="z-index: 99">
     <form id="form">
         <label for="eq">Enter an equation: y=</label>
         <input type="text" id="eq" value="x" onkeyup="requestEquationInput()" onclick="toggleKeyboard()" />
@@ -460,11 +460,16 @@
         draw(graphNo);
 
         graphs[graphNo].addEventListener('click', function (e) {
-            let id = this.id;
-            graphClicked(parseInt(id.substring(4, id.length)));
+            let id = parseInt(this.id.substring(4, this.id.length));
+            graphClicked(id);
+
+            //move the equation input here
+            document.getElementById("graphInfo").style.top = this.offsetTop - 225 + "px";
         }, false);
 
         graphNo++;
+
+        expressionInput.focus();
     };
 
     //when the graph is clicked, bring up the equation div
