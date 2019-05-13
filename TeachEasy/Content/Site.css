@@ -1,18 +1,26 @@
-﻿body {
-    height: 750px;
-    padding-bottom: 20px;
+﻿
+body {
+    height: 100%;
+}
+/* puts footer at the bottom of the view*/
+footer {
+    position: absolute; 
+    bottom: 0;
+    width: 100%;
 }
 
+
 .home-content {
-    height: 750px;
     display: table;
     margin: 0 auto;
+    height: 750px;
 }
 
 .home-page-button-wrapper {
     display: table-cell;
     vertical-align: middle;
     width: 200px;
+    
 }
 
 a.home-page-button {
@@ -31,6 +39,7 @@ a.home-page-button:hover {
     text-decoration: none;
     color: white;
 }
+
 
 #logo {
     position: absolute;
@@ -53,9 +62,7 @@ a.home-page-button:hover {
 
 /*Assignment page css*/
 
-#asgn-page-content {
-    height: 800px;
-}
+
 .side-button {
     width: 170px;
     padding-top: 0px;
@@ -65,6 +72,41 @@ a.home-page-button:hover {
     padding-top: 15px;
     padding-bottom: 5px;
 }
+
+/*Login page css*/
+
+#login-page-content {
+    display: table;
+    margin: 0 auto;
+}
+
+#login-wrapper {
+    display: table-cell;
+    top: 50px;
+    border: 1px solid #ccc;
+    width: 360px;
+    position: relative;
+    top: 50px;
+    padding: 20px;
+}
+
+#login-row {
+    display: block;
+    
+}
+
+/*overrides bootstrap login responsiveness*/
+#login-collumn-8, #login-collumn-4{
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -93,6 +135,7 @@ textarea {
 .padding-error {
     padding-top: 20px;
 }
+
 
 
 @media only screen and (max-width: 767px) {
