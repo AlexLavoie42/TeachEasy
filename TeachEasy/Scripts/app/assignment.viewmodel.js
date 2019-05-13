@@ -1,12 +1,12 @@
 ﻿function AssignmentViewModel() {
 
     //Initialize variables here
-
+    /*
     var addSecImg = document.createElement("img");
     var addSecHighlight = document.createElement("span");
     var addSecSelected;//if the add-section icon is selected
     var addSecEnabled;//if the add-section icon is enabled
-
+    */
     var written = document.getElementById("written");
     var mc = document.getElementById("mc");
     var fib = document.getElementById("fib");
@@ -34,7 +34,7 @@
     var questionsNum;//number of question divs
 
     var graphInfo = document.getElementById("graphInfo");
-
+    /*
     //give the variables their values
     addSecImg.src = "../../images/addSec.png";
     addSecHighlight.style.backgroundColor = "#6a6a6a";
@@ -64,7 +64,7 @@
 
     //add variables to the page
     document.body.appendChild(addSecImg);
-    document.body.appendChild(addSecHighlight);
+    document.body.appendChild(addSecHighlight);*/
 
     //Initialize math equations
     let BlockEmbed = Quill.import('blots/block/embed');
@@ -82,10 +82,37 @@
 
     Quill.register(MathBlot);
 
+    class QuestionBlot extends BlockEmbed {
+        static create() {
+            let question = document.createElement('div');
+            questionDivs[questionsNum++] = question;
+            question.className = 'question';
+
+            quill.insertText(questionsNum, questionsArray[questionType]);
+            let answer = document.createElement('div');
+            answer.appendChild(document.createElement('br'));
+            answer.appendChild(document.createElement('br'));
+            answer.appendChild(document.createElement('br'));
+
+            question.appendChild(document.createElement('br')); 
+            question.appendChild(answer);
+            return question;
+        }
+    }
+    QuestionBlot.blotName = 'question';
+    QuestionBlot.tagName = 'div';
+
+    Quill.register(QuestionBlot);
+
     var mathButton = document.querySelector('#math');
     mathButton.addEventListener('click', function () {
         let range = quill.getSelection(true);
         quill.insertEmbed(range.index, 'math', true, Quill.sources.USER);
+    });
+
+    var addButton = document.querySelector('#addSection');
+    addButton.addEventListener('click', function () {
+        addQuestion();
     });
 
     //Types of question answers
@@ -107,66 +134,20 @@
 
     }
 
-    //Moves the add section icon down however many pixels the y variable is
-    function moveAddSecIcon(y) {
-        addSecY += y;
-        addSecImg.style.top = addSecY + "px";
-    }
-
-    //Puts a highlight on the add section icon
-    function secIconHovered() {
-        addSecHighlight.style.left = 4 + addSecX + "px";
-        addSecHighlight.style.top = 15 + addSecY + "px";
-        addSecSelected = true;
-    }
-
-    //Removes highlight from the add section icon
-    function secIconUnhovered() {
-        addSecHighlight.style.left = "-200px";
-        addSecHighlight.style.top = "-200px";
-        addSecSelected = false;
-    }
-
-    //enables addSecIcon if val is true
-    function enableAddSecIcon(val) {
-        if (val == true || val == false) {//val must be boolean
-            addSecEnabled = val;
-            if (!val)
-                addSecImg.style.display = "none";
-            else
-                addSecImg.style.display = "block";
-        } else console.log("Error: the argument to enableAddSecIcon() must be boolean");
-    }
-    enableAddSecIcon(false);
-
-    //Create section HTML
-    function addSecIconPressed() {
-        moveAddSecIcon(300);
-        secIconUnhovered();//deselect the icon
-        enableAddSecIcon(false);
-        questionTypeTable.style.display = "block";
-        fadeInElement(questionTypeTable, 30);
-    }
-
     //Moves the question type table down according to the specified y
     function moveQuestionTypeTable(y) {
-        questionTypeY += y;
+        questionTypeY = y;
         questionTypeTable.style.top = questionTypeY + "px";
     }
 
     //Changes section style, type is sectionTypes ENUM.
     function questionTypeSelected(num) {
         questionType = num;
-        moveQuestionTypeTable(300);
         questionTypeTable.style.display = "none";
-        enableAddSecIcon(true);
-        fadeInElement(addSecImg, 30);
-        addQuestion();
     }
 
     function addQuestion() {
-        quill.insertText(quill.getLength, '\n');
-        quill.insertText(quill.getLength, questionsArray[questionType]);
+        quill.insertEmbed(questionsNum + 1, 'question', true, Quill.sources.USER);
     }
 
     //Creates Math Graph
@@ -204,40 +185,16 @@
         }, speed);
     }
 
-    function getFocusedEditor() {
-        questionEditors.forEach(function (element) {
-            if (element.hasFocus) return element;
-        });
-    }
-
     //Add Event listeners here
-    //check if the user is hovering over the add section icon
+    //check if the user is hovering over a question
     window.addEventListener('mousemove', function (event) {
         let x = event.clientX;
         let y = event.clientY;
 
-        if (x >= addSecX && x <= (addSecX + addSecImg.width)
-            && y >= addSecY && y <= (addSecY + addSecImg.height) && addSecEnabled)
-            secIconHovered();
-        else
-            secIconUnhovered();
-    });
-
-    //check if the user clicks on the add section icon
-    window.addEventListener('click', function (event) {
-        let x = event.clientX;
-        let y = event.clientY;
-
-        //if the add section icon isn't hovered over, the user may be in mobile so check if they tapped it
-        if ((addSecSelected || (x >= addSecX && x <= (addSecX + addSecImg.width)
-            && y >= addSecY && y <= (addSecY + addSecImg.height))) && addSecEnabled)
-            addSecIconPressed();
+        //add logic here
     });
 
     window.onresize = function () {
-        addSecX = window.innerWidth / 2 - addSecImg.width / 2;
-        addSecImg.style.left = addSecX + "px";
-
         questionTypeX = window.innerWidth / 100 * 30;
         questionTypeTable.style.right = questionTypeX + "px";
     }

@@ -3,8 +3,7 @@
 ################################################################################
 
 /TeachEasy/.vs/TeachEasy
-/TeachEasy/bin
 /TeachEasy/obj
+/TeachEasy/bin
 /TeachEasy/App_Data
 *.cache
-TeachEasy/.vs
