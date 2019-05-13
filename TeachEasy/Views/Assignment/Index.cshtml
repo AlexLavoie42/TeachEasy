@@ -48,15 +48,22 @@
     <p>Some initial <strong>bold</strong> text</p>
 </div>
 
-<div id="graphInfo">
+<form>
+    <button type="button" id="insertGraph">Insert graph</button>
+</form>
+
+<div class="graphInfo">
     <form id="form">
         <label for="eq">Enter an equation: y=</label>
-        <input type="text" id="eq" value="x" onkeyup="requestEquationInput()" onclick="toggleKeyboard()"/>
+        <input type="text" id="eq" value="x" onkeyup="requestEquationInput()" onclick="toggleKeyboard()" />
     </form>
+
+    <span id="equationErrLog" style="color: red"></span>
 </div>
 
-<span id="equationErrLog" style="color: red"></span>
 <div id="plot"></div>
+
+<div id="doc"></div>
 
 <!--This appears when the user is typing an equation for the graph-->
 <table id="keyboard">
@@ -371,45 +378,62 @@
     var keyboardDisplay;
     var keyboardToggling;//if the keyboard is being pulled up or down
     function toggleKeyboard() {
-        if (!mobile) {
-            let dy;//endPageY - this = position of keyboard
-            let scrollY = window.scrollY;
+        let dy;//endPageY - this = position of keyboard
+        let scrollY = window.scrollY;
 
-            if (!keyboardToggling) {
-                keyboardToggling = true;
+        if (!keyboardToggling) {
+            keyboardToggling = true;
 
-                if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
-                    dy = 0;
+            if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
+                dy = 0;
 
-                    let interval = window.setInterval(function () {
-                        dy += 4;
-                        keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
-                        document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
+                let interval = window.setInterval(function () {
+                    dy += 4;
+                    keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
+                    document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
 
-                        if (dy == 40) {
-                            keyboardToggling = false;
-                            keyboardDisplay = true;
-                            window.clearInterval(interval);
-                        }
-                    }, 25);
-                } else {//if the keyboard is displayed, pull it down
-                    dy = 40;
+                    if (dy == 40) {
+                        keyboardToggling = false;
+                        keyboardDisplay = true;
+                        window.clearInterval(interval);
+                    }
+                }, 25);
+            } else {//if the keyboard is displayed, pull it down
+                dy = 40;
 
-                    let interval = window.setInterval(function () {
-                        dy -= 4;
-                        keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
-                        document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
+                let interval = window.setInterval(function () {
+                    dy -= 4;
+                    keyboard.style.top = endPageY - getHeightByPercent(dy) + "px";
+                    document.body.style.paddingBottom = getHeightByPercent(dy) + "px";
 
-                        if (dy == 0) {
-                            keyboardToggling = false;
-                            keyboardDisplay = false;
-                            window.clearInterval(interval);
-                        }
-                    }, 25);
-                }
+                    if (dy == 0) {
+                        keyboardToggling = false;
+                        keyboardDisplay = false;
+                        window.clearInterval(interval);
+                    }
+                }, 25);
             }
-        } else {
-
         }
     }
+
+    //inserting a graph into the document
+    var insertGraphB = document.getElementById("insertGraph");
+    var graphs = new Array();
+    var graphNo;//number of graphs in the doc
+
+    insertGraphB.onclick = function () {
+        graphs[graphNo] = document.createElement("div");
+        graphs[graphNo].innerHTML =
+            '<div class="graphInfo">'
+            + '<form id="form">'
+            + '<label for="eq">Enter an equation: y=</label>'
+            + '<input type="text" id="eq" value="x" onkeyup="requestEquationInput()" onclick="toggleKeyboard()" />'
+            + '</form>'
+
+            + '<span id="equationErrLog" style="color: red"></span>'
+            + '</div>'
+            + '<div id="plot"></div>';
+
+        document.body.appendChild(graphs[graphNo++]);
+    };
 </script>
