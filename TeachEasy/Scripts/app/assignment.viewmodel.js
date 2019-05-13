@@ -89,13 +89,16 @@
             question.className = 'question';
 
             quill.insertText(questionsNum, questionsArray[questionType]);
-            let answer = document.createElement('div');
-            answer.appendChild(document.createElement('br'));
-            answer.appendChild(document.createElement('br'));
-            answer.appendChild(document.createElement('br'));
+            question.appendChild(document.createElement('br'));
+            question.appendChild(document.createElement('br'));
 
-            question.appendChild(document.createElement('br')); 
+            let answer = document.createElement('div');
+            answer.className = 'answer';
+            answer.innerHTML = "Answer: ";
+
             question.appendChild(answer);
+            question.appendChild(document.createElement('br'));
+
             return question;
         }
     }
@@ -113,6 +116,7 @@
     var addButton = document.querySelector('#addSection');
     addButton.addEventListener('click', function () {
         addQuestion();
+        $('#questionsList p + div').prev('p').attr('class', 'q');
     });
 
     //Types of question answers
