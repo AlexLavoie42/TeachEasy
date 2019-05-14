@@ -1,12 +1,5 @@
 ﻿function AssignmentViewModel() {
 
-    //Initialize variables here
-    /*
-    var addSecImg = document.createElement("img");
-    var addSecHighlight = document.createElement("span");
-    var addSecSelected;//if the add-section icon is selected
-    var addSecEnabled;//if the add-section icon is enabled
-    */
     var written = document.getElementById("written");
     var mc = document.getElementById("mc");
     var fib = document.getElementById("fib");
@@ -34,37 +27,7 @@
     var questionsNum;//number of question divs
 
     var graphInfo = document.getElementById("graphInfo");
-    /*
-    //give the variables their values
-    addSecImg.src = "../../images/addSec.png";
-    addSecHighlight.style.backgroundColor = "#6a6a6a";
-    addSecHighlight.style.opacity = "0.5";
-    addSecHighlight.style.filter = "alpha(opacity=50)";
-
-    //size the variables
-    addSecImg.style.width = "60px";
-    addSecImg.style.height = "60px";
-    addSecHighlight.style.width = "52px";
-    addSecHighlight.style.height = "41px";
-
-    //initialize variables based on modifications above
-    var addSecX = window.innerWidth / 2 - addSecImg.width / 2, addSecY = 300;
-
-    //locate variables
-    addSecImg.style.position = "absolute";
-    addSecHighlight.style.position = "absolute";
-    addSecImg.style.left = addSecX + "px";
-    addSecImg.style.top = addSecY + "px";
-    addSecHighlight.style.left = "-200px";
-    addSecHighlight.style.top = "-200px";
-
-    questionTypeTable.style.position = "absolute";
-    questionTypeTable.style.top = questionTypeY + "px";
-    questionTypeTable.style.right = questionTypeX + "px";
-
-    //add variables to the page
-    document.body.appendChild(addSecImg);
-    document.body.appendChild(addSecHighlight);*/
+   
 
     //Initialize math equations
     let BlockEmbed = Quill.import('blots/block/embed');
@@ -115,6 +78,10 @@
         addQuestion();
     });
 
+    var optionsButton = document.querySelector('#addSection');
+    addButton.addEventListener('click', function () {
+        addQuestion();
+    });
     //Types of question answers
     const sectionTypes = {
         WRITTEN: 0,
