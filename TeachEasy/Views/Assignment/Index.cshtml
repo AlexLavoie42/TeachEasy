@@ -49,14 +49,11 @@
     <p>Some initial <strong>bold</strong> text</p>
 </div>
 
-<form>
-    <button type="button" id="insertGraph">Insert graph</button>
-</form>
-
 <div id="graphInfo" style="z-index: 99">
     <form id="form">
         <label for="eq">Enter an equation: y=</label>
         <input type="text" id="eq" value="x" onkeyup="requestEquationInput()" onclick="toggleKeyboard()" />
+        <button type="button" id="insertGraph" style="float: right">Insert graph</button>
     </form>
 
     <span id="equationErrLog" style="color: red"></span>
@@ -464,10 +461,13 @@
             graphClicked(id);
 
             //move the equation input here
-            document.getElementById("graphInfo").style.top = this.offsetTop - 225 + "px";
+            document.getElementById("graphInfo").style.top = this.offsetTop - 200 + "px";
         }, false);
 
         graphNo++;
+
+        //send the equation editor to the last graph
+        document.getElementById("graphInfo").style.top = graphs[graphs.length - 1].offsetTop - 200 + "px";
 
         expressionInput.focus();
     };
