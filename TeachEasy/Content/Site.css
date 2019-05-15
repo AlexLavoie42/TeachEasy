@@ -1,14 +1,12 @@
 ﻿
+
 body {
-    height: 100%;
+    min-height: 100%;
 }
 /* puts footer at the bottom of the view*/
 footer {
-    position: absolute; 
-    bottom: 0;
-    width: 100%;
+    margin-top: -40px;
 }
-
 
 .home-content {
     display: table;
@@ -50,18 +48,13 @@ a.home-page-button:hover {
     margin-right: auto;
 }
 
-
 /** Bootstrap Overrides **/
-
-
 
 .navbar-collapse collapse show {
     position: absolute;
 }
 
-
 /*Assignment page css*/
-
 
 .side-button {
     width: 170px;
@@ -71,6 +64,20 @@ a.home-page-button:hover {
 #font-header {
     padding-top: 15px;
     padding-bottom: 5px;
+}
+
+#asgn-page-content {
+    margin-top: 20px;
+    height: 990px;
+    width: 765px;
+    background-color: white;
+    display: inline-block;
+    border: 3px solid black;
+}
+
+#asgn-page-background {
+    text-align: center;
+    background-color: rgba(229, 229, 229, 1);
 }
 
 /*Login page css*/
@@ -145,5 +152,5 @@ textarea {
     }
 }
 
-/* Log in styling */
+
 
