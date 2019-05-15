@@ -19,9 +19,9 @@
 
     var questionsArray = [
         "Write a paragraph to describe yourself.",
-        "This answer is NOT an example of an animal: a. Alligator b. Giraffe c. Lion d. Rose",
+        "This answer is NOT an example of an animal:",
         "A ______ creates honey",
-        "Santa is real: true false"
+        "Santa is real:"
     ];
     var questionDivs = new Array();//array holding all individual question divs
     var questionsNum;//number of question divs
@@ -65,13 +65,24 @@
             questionDivs[questionsNum++] = question;
             question.className = 'question';
 
-            quill.insertText(questionsNum, questionsArray[questionType]);
+            quill.insertText(questionsNum, questionsNum + "." + questionsArray[questionType]);
             let answer = document.createElement('div');
-            answer.appendChild(document.createElement('br'));
-            answer.appendChild(document.createElement('br'));
-            answer.appendChild(document.createElement('br'));
 
-            question.appendChild(document.createElement('br')); 
+            switch (questionType) {
+                case 0:
+                    answer.innerHTML = "<br /><br /><br />";
+                    break;
+                case 1:
+                    answer.innerHTML = "a. Alligator<br />b. Giraffe<br />c. Lion<br />d. Rose<br /><br />";
+                    break;
+                case 3:
+                    answer.innerHTML = "true\t\tfalse<br /><br />";
+                    break;
+                default:
+                    answer.innerHTML = "<br /><br />";
+                    break;
+            }
+
             question.appendChild(answer);
             return question;
         }
