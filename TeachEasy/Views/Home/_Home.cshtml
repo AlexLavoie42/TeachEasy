@@ -8,10 +8,6 @@
 
 <body>
     <div class="home-content">
-        @if (Request.IsAuthenticated)
-        {
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage" })
-        }
         <div class="home-page-button-wrapper">
             @Html.ActionLink("Create an Assignment", "Index", "Assignment", null, new { @class = "home-page-button" })
         </div>
