@@ -57,6 +57,32 @@
     display: inline-block;
 }
 
+@media print {
+    .button {
+        display: none;
+    }
+
+    #graphInfo {
+        display: none;
+    }
+
+    #reqQuestionType {
+        display: none;
+    }
+
+    .infoBox {
+        display: none;
+    }
+
+    #toolbar {
+        display: none;
+    }
+
+    #addSection {
+        display: none;
+    }
+}
+
 
 /*bootstrap overrides*/
 

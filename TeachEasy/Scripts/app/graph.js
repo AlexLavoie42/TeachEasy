@@ -330,10 +330,11 @@ var graphEquations = new Array();
 var graphNo = 0;//number of graphs in the doc
 var curGraphNo;//the current graph being edited
 
-
-
 //when the graph is clicked, bring up the equation div
 function graphClicked(graphNo) {
     curGraphNo = graphNo;
+    expressionInput.style.display = "block";
     expressionInput.value = graphEquations[graphNo];
 }
+
+expressionInput.style.display = "none";
