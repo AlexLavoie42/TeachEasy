@@ -27,13 +27,20 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Tool Bar </div>
             <div id="question_modifiers">
-                <button type="button" class="list-group-item side-button" id="questionOptions">Question Options</button>
                 <button type="button" class="list-group-item side-button" id="math">Math Equation</button>
                 <button type="button" class="list-group-item side-button" id="insertGraph">Insert Graph</button>
                 <button type="button" class="list-group-item side-button" onclick="window.print()">Print/Export</button>
             </div>
             <div id="question_section">
-                <button id="addSection" class="list-group-item side-button">Add Question</button>
+                <button id="addSection" class="list-group-item side-button">Add Question ></button>
+                <div id="reqQuestionType">
+                    <form>
+                        <button id="written" class="list-group-item side-button" type="button">Written</button><br />
+                        <button id="mc" class="list-group-item side-button" type="button">Multiple Choice</button><br />
+                        <button id="fib" class="list-group-item side-button" type="button">Fill in Blank</button><br />
+                        <button id="tf" class="list-group-item side-button" type="button">True/False</button>
+                    </form>
+                </div>
             </div>
         </div>
         }
@@ -47,7 +54,7 @@
                 -->
                 
                 <img src="~/Content/images/teacheasy.png" id="logo"/>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <button class="navbar-toggler" id ="navbar-menu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon" aria-expanded="false"></span>
                 </button>
 

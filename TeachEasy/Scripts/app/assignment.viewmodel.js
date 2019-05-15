@@ -88,17 +88,15 @@
     });
 
     var addButton = document.querySelector('#addSection');
+    var questionTypeDisplayed = false;//if the question type table is being displayed
     addButton.addEventListener('click', function () {
-        addQuestion();
-    });
-
-    var optionsButton = document.querySelector('#questionOptions');
-    optionsButton.addEventListener('click', function () {
-        if (questionTypeTable.style.display == 'none') {
+        if (!questionTypeDisplayed) {
             questionTypeTable.style.display = 'block';
             fadeInElement(questionTypeTable, 10);
+            questionTypeDisplayed = true;
         } else {
             questionTypeTable.style.display = 'none';
+            questionTypeDisplayed = false;
         }
     });
 
@@ -200,10 +198,10 @@
         questionTypeTable.style.right = questionTypeX + "px";
     }
 
-    written.onclick = function () { questionTypeSelected(0); }
-    mc.onclick = function () { questionTypeSelected(1); }
-    fib.onclick = function () { questionTypeSelected(2); }
-    tf.onclick = function () { questionTypeSelected(3); }
+    written.onclick = function () { questionTypeSelected(0); addQuestion(); questionTypeDisplayed = false; }
+    mc.onclick = function () { questionTypeSelected(1); addQuestion(); questionTypeDisplayed = false; }
+    fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
+    tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
 }
 
 assignmentViewModel = new AssignmentViewModel();
