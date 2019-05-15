@@ -45,6 +45,20 @@
 
     Quill.register(MathBlot);
 
+    class GraphBlot extends BlockEmbed {
+        static create() {
+            graphs[graphNo] = document.createElement("div");
+            graphs[graphNo].id = 'plot' + graphNo;
+            graphEquations[graphNo] = "x";
+            expressionInput.value = "x";
+            return graphs[graphNo];
+        }
+    }
+    GraphBlot.blotName = 'graph';
+    GraphBlot.tagName = 'div';
+
+    Quill.register(GraphBlot)
+
     class QuestionBlot extends BlockEmbed {
         static create() {
             let question = document.createElement('div');
@@ -82,6 +96,7 @@
     addButton.addEventListener('click', function () {
         addQuestion();
     });
+
     //Types of question answers
     const sectionTypes = {
         WRITTEN: 0,
@@ -121,11 +136,29 @@
     function insertGraph() {
         graphInfo.style.display = "block";
         fadeInElement(graphInfo, 30);
-    }
 
-    //Updates specified graph
-    function updateGraph(graph) {
+        graphClicked(graphNo);//run the graphClicked() once automatically
 
+        //Insert the graph into the text editor
+        let range = quill.getSelection(true);
+        quill.insertEmbed(range.index, 'graph', true, Quill.sources.USER);
+
+        draw(graphNo);
+
+        graphs[graphNo].addEventListener('click', function (e) {
+            let id = parseInt(this.id.substring(4, this.id.length));
+            graphClicked(id);
+
+            //move the equation input here
+            document.getElementById("graphInfo").style.top = this.offsetTop - 200 + "px";
+        }, false);
+
+        graphNo++;
+
+        //send the equation editor to the last graph
+        document.getElementById("graphInfo").style.top = graphs[graphs.length - 1].offsetTop - 200 + "px";
+
+        expressionInput.focus();
     }
 
     //Displays math keyboard
@@ -160,6 +193,11 @@
 
         //add logic here
     });
+
+    //when the insert graph button is clicked, a graph is inserted
+    insertGraphB.onclick = function () {
+        insertGraph();
+    };
 
     window.onresize = function () {
         questionTypeX = window.innerWidth / 100 * 30;

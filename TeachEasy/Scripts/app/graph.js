@@ -65,6 +65,7 @@ function requestEquationInput() {
 
             //otherwise, if the wait is complete and the equation is changed, draw()
             else if (equationInputWait == 10 && curString != begString) {
+                //SHH
                 if (expressionInput.value == "ecocity") {
                     Plotly.animate('plot' + curGraphNo, {
                         data: [{
@@ -323,40 +324,13 @@ function toggleKeyboard() {
 }
 
 //inserting a graph into the document
-var doc = document.getElementById("doc");
 var insertGraphB = document.getElementById("insertGraph");
 var graphs = new Array();
 var graphEquations = new Array();
 var graphNo = 0;//number of graphs in the doc
 var curGraphNo;//the current graph being edited
 
-//when the insert graph button is clicked, a graph is inserted
-insertGraphB.onclick = function () {
-    graphs[graphNo] = document.createElement("div");
-    graphs[graphNo].id = 'plot' + graphNo;
-    graphEquations[graphNo] = "x";
-    expressionInput.value = "x";
 
-    graphClicked(graphNo);//run the graphClicked() once automatically
-
-    doc.appendChild(graphs[graphNo]);
-    draw(graphNo);
-
-    graphs[graphNo].addEventListener('click', function (e) {
-        let id = parseInt(this.id.substring(4, this.id.length));
-        graphClicked(id);
-
-        //move the equation input here
-        document.getElementById("graphInfo").style.top = this.offsetTop - 200 + "px";
-    }, false);
-
-    graphNo++;
-
-    //send the equation editor to the last graph
-    document.getElementById("graphInfo").style.top = graphs[graphs.length - 1].offsetTop - 200 + "px";
-
-    expressionInput.focus();
-};
 
 //when the graph is clicked, bring up the equation div
 function graphClicked(graphNo) {
