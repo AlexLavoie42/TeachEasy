@@ -99,8 +99,7 @@ a.home-page-button:hover {
 }
 
 #login-row {
-    display: block;
-    
+    display: block; 
 }
 
 /*overrides bootstrap login responsiveness*/
