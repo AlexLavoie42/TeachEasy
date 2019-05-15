@@ -164,13 +164,16 @@
             graphClicked(id);
 
             //move the equation input here
-            document.getElementById("graphInfo").style.top = this.offsetTop - 200 + "px";
+            console.log(this.offsetTop);
+            document.getElementById("graphInfo").style.display = "block";
+            document.getElementById("graphInfo").style.top = this.offsetTop - 1080 + "px";
         }, false);
 
         graphNo++;
 
         //send the equation editor to the last graph
-        document.getElementById("graphInfo").style.top = graphs[graphs.length - 1].offsetTop - 200 + "px";
+        document.getElementById("graphInfo").style.display = "block";
+        document.getElementById("graphInfo").style.top = graphs[graphs.length - 1].offsetTop - 1080 + "px";
 
         expressionInput.focus();
     }

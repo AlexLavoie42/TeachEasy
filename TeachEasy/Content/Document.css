@@ -24,7 +24,11 @@
     position: absolute;
     top: 400px;
     right: 10%;
+    display: none;
+    width: 50%;
 }
+
+#graphInfo input{text-align: center;}
 
 #toolbar{
     border: 1px solid black;
