@@ -13,15 +13,13 @@
 }
 
 #reqQuestionType {
-    border: solid black 3px;
-    border-radius: 5px;
-    position: absolute;
-    top: 100px;
-    right: 30%;
+    border: solid black 1px;
+    background-color: grey;
+    display: none;
 }
 
 #graphInfo {
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 15px;
     position: absolute;
     top: 400px;
