@@ -54,7 +54,7 @@
                 -->
                 
                 <img src="~/Content/images/teacheasy.png" id="logo"/>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <button class="navbar-toggler" id ="navbar-menu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon" aria-expanded="false"></span>
                 </button>
 
@@ -70,12 +70,8 @@
                             <li class="nav-item active">
                                 @Html.ActionLink("About Us", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                             </li>
-                            <li class="nav-item active">
-                                @Html.ActionLink("Sign in", "Login", "Account", new { area = "" }, new { @class = "nav-link" })
-                            </li>
-
-                            
                         </ul>
+                        @Html.Partial("_LoginPartial")
                     </div>
                 </div>
 

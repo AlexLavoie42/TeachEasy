@@ -68,6 +68,7 @@ a.home-page-button:hover {
 
 #asgn-page-content {
     margin-top: 20px;
+    text-align: left;
     height: 990px;
     width: 765px;
     background-color: white;
@@ -98,8 +99,7 @@ a.home-page-button:hover {
 }
 
 #login-row {
-    display: block;
-    
+    display: block; 
 }
 
 /*overrides bootstrap login responsiveness*/
