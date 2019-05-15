@@ -92,9 +92,14 @@
         addQuestion();
     });
 
-    var optionsButton = document.querySelector('#addSection');
+    var optionsButton = document.querySelector('#questionOptions');
     addButton.addEventListener('click', function () {
-        addQuestion();
+        if (questionTypeTable.style.display == 'none') {
+            questionTypeTable.style.display = 'block';
+            fadeInElement(questionTypeTable, 10);
+        } else {
+            questionTypeTable.style.display = 'none';
+        }
     });
 
     //Types of question answers
@@ -184,15 +189,6 @@
             if (op == 100) window.clearInterval(interval);
         }, speed);
     }
-
-    //Add Event listeners here
-    //check if the user is hovering over a question
-    window.addEventListener('mousemove', function (event) {
-        let x = event.clientX;
-        let y = event.clientY;
-
-        //add logic here
-    });
 
     //when the insert graph button is clicked, a graph is inserted
     insertGraphB.onclick = function () {
