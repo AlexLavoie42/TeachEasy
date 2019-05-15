@@ -115,5 +115,3 @@ C:\Users\User\source\Repos\TeachEasy\TeachEasy\obj\Debug\TeachEasy.csproj.CoreCo
 C:\Users\User\source\Repos\TeachEasy\TeachEasy\obj\Debug\TeachEasy.csproj.CopyComplete
 C:\Users\User\source\Repos\TeachEasy\TeachEasy\obj\Debug\TeachEasy.dll
 C:\Users\User\source\Repos\TeachEasy\TeachEasy\obj\Debug\TeachEasy.pdb
-C:\Users\User\source\Repos\TeachEasy\TeachEasy\obj\Debug\TeachEasy.Migrations.InitialCreate.resources
-C:\Users\User\source\Repos\TeachEasy\TeachEasy\obj\Debug\TeachEasy.csproj.GenerateResource.cache
