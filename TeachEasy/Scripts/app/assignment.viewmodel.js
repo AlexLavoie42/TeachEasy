@@ -93,7 +93,7 @@
     });
 
     var optionsButton = document.querySelector('#questionOptions');
-    addButton.addEventListener('click', function () {
+    optionsButton.addEventListener('click', function () {
         if (questionTypeTable.style.display == 'none') {
             questionTypeTable.style.display = 'block';
             fadeInElement(questionTypeTable, 10);
