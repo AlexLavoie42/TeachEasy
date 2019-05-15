@@ -10,8 +10,8 @@
     var questionTypeX = window.innerWidth / 100 * 30;
     var questionTypeY = 100;
 
-    var questionsListDiv = document.getElementById("questionsList");
-    var quill = new Quill('#questionsList', {
+    var questionsListDiv = document.getElementById("asgn-page-content");
+    var quill = new Quill('#asgn-page-content', {
         modules: {
             toolbar: '#toolbar'
         }
