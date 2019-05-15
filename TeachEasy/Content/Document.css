@@ -26,6 +26,19 @@
     right: 10%;
 }
 
+#toolbar{
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+#toolbar button{
+    width: 125px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .button {
     
     background-color: white; /* Green */
@@ -60,7 +73,7 @@
         display: none;
     }
 
-    #graphInfo {
+    #asgn-page-background {
         display: none;
     }
 
@@ -77,6 +90,10 @@
     }
 
     #addSection {
+        display: none;
+    }
+
+    #keyboard{
         display: none;
     }
 }
