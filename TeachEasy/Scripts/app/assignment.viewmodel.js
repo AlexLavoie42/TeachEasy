@@ -27,7 +27,6 @@
     var questionsNum;//number of question divs
 
     var graphInfo = document.getElementById("graphInfo");
-   
 
     //Initialize math equations
     let BlockEmbed = Quill.import('blots/block/embed');
@@ -58,6 +57,55 @@
     GraphBlot.tagName = 'div';
 
     Quill.register(GraphBlot)
+
+    var headingType = 0;
+    class TitleBlot extends BlockEmbed {
+        static create() {
+            let title = document.createElement('div');
+            let type;
+            let heading;
+
+            switch (headingType) {
+                case 0:
+                    type = 'h1';
+                    break;
+                case 1:
+                    type = 'h2';
+                    break;
+                case 2:
+                    type = 'h3';
+                    break;
+                case 3:
+                    type = 'h4';
+                    break;
+                case 4:
+                    type = 'h5';
+                    break;
+                case 5:
+                    type = 'h6';
+                    break;
+                default:
+                    type = 'h1';
+                    break;
+            }
+
+            heading = document.createElement(type);
+            heading.innerHTML = "Title";
+            title.appendChild(heading);
+
+            return title;
+        }
+    }
+    TitleBlot.blotName = 'title';
+    TitleBlot.tagName = 'div';
+
+    Quill.register(TitleBlot);
+
+    function addTitle() {
+        let range = quill.getSelection(true);
+        quill.insertEmbed(range.index, 'title', true, Quill.sources.USER);
+    }
+    addTitle();
 
     class QuestionBlot extends BlockEmbed {
         static create() {
