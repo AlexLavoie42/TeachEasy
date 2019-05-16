@@ -24,6 +24,23 @@
     position: absolute;
     top: 400px;
     right: 10%;
+    display: none;
+    width: 50%;
+}
+
+#graphInfo input{text-align: center;}
+
+#toolbar{
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+#toolbar button{
+    width: 125px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .button {
@@ -60,7 +77,7 @@
         display: none;
     }
 
-    #graphInfo {
+    #asgn-page-background {
         display: none;
     }
 
@@ -77,6 +94,10 @@
     }
 
     #addSection {
+        display: none;
+    }
+
+    #keyboard{
         display: none;
     }
 }

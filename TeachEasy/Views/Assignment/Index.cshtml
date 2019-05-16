@@ -16,14 +16,6 @@
 
 <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<div id="toolbar">
-    <!-- Add a bold button -->
-    <button class="ql-bold">Bold</button>
-    <button class="ql-italic">Italics</button>
-    <!-- Add subscript and superscript buttons -->
-    <button class="ql-script" value="sub">Subscript</button>
-    <button class="ql-script" value="super">Superscript</button>
-</div>
 <div id="asgn-page-background">
     <div id="asgn-page-content">
     </div>
@@ -31,6 +23,7 @@
         <form id="form">
             <label for="eq">Enter an equation: y=</label>
             <input type="text" id="eq" value="x" onkeyup="requestEquationInput()" onclick="toggleKeyboard()" />
+            <button type="button" onclick="exitGraphEq()">x</button>
         </form>
         <span id="equationErrLog" style="color: red"></span>
     </div>
