@@ -224,11 +224,21 @@ function highlightKey(key, color) {
     }
 }
 
+var equationFocus = false;//if the graph equation input has focus
+function toggleEquationFocus() {
+    equationFocus = (equationFocus) ? false : true;
+}
+
+expressionInput.onfocus = toggleEquationFocus;
+expressionInput.onfocusout = toggleEquationFocus;
+
 var grey = "#d4d4d4";
 var darkGrey = "#808080";
 
 //add event listeners for the keys so that the virtual keys get highlighted
 window.onkeydown = function (e) {
+    if (equationFocus)
+        expressionInput.focus();
     highlightKey(e.key, darkGrey);
 };
 
