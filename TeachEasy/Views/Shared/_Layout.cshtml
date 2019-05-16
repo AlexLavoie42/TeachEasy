@@ -70,33 +70,31 @@
                             <li class="nav-item active">
                                 @Html.ActionLink("About Us", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
                             </li>
+                        </ul>
+
+                    </div>
+                    <div class="menu menu-right">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0" id="nav-menu-right">
                             @using Microsoft.AspNet.Identity
                             @if (Request.IsAuthenticated)
                             {
-                                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm"}))
                                 {
                                     @Html.AntiForgeryToken()
-
-                                    
-                                        <li>
-                                            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage", @class = "nav-link" })
-                                        </li>
-                                        <li><a href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">Log off</a></li>
-                                    
+                                    <li>
+                                        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage", @class = "nav-link", id = "right-menu-logoff" })
+                                    </li>
+                                    <li><a class ="nav-link" id="right-menu-logoff" href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">Log off</a></li>
                                 }
                             }
                             else
                             {
-                                
-                                    <li class="nav-item active">@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink", @class = "nav-link"})</li>
-                                    <li class="nav-item active">@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink", @class = "nav-link"})</li>
-                               
+                                <li class="nav-item active">@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+                                <li class="nav-item active">@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink nav-menu-right", @class = "nav-link" })</li>
                             }
                         </ul>
-                        
                     </div>
                 </div>
-
             </nav>
             <div class="container-fluid">
                 @RenderBody()

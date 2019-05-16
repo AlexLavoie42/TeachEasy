@@ -8,17 +8,29 @@ footer {
     margin-top: -40px;
 }
 
+/* reflects bootstrap css for navbar links */
+
+
+
 .home-content {
     display: table;
     margin: 0 auto;
     height: 750px;
 }
 
+.menu-right {
+    position: absolute;
+    left: 86%;
+}
+
+#right-menu-logoff {
+}
+
+
 .home-page-button-wrapper {
     display: table-cell;
     vertical-align: middle;
     width: 200px;
-    
 }
 
 a.home-page-button {
