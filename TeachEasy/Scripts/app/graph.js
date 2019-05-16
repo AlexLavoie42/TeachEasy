@@ -41,6 +41,11 @@ function draw(graphNo) {
     }
 }
 
+//closes the equation input div when exit button is clicked
+function closeGraphEq() {
+    document.getElementById("graphInfo").style.display = "none";
+}
+
 /*waits a second to check if the user is still typing out the graph equation. If
  * not, update the graph. */
 function requestEquationInput() {

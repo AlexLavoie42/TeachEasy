@@ -27,7 +27,6 @@
     var questionsNum;//number of question divs
 
     var graphInfo = document.getElementById("graphInfo");
-   
 
     //Initialize math equations
     let BlockEmbed = Quill.import('blots/block/embed');
@@ -58,6 +57,66 @@
     GraphBlot.tagName = 'div';
 
     Quill.register(GraphBlot)
+
+    var headingType = 0;
+    class TitleBlot extends BlockEmbed {
+        static create() {
+            let title = document.createElement('div');
+            let type;
+            let heading;
+
+            switch (headingType) {
+                case 0:
+                    type = 'h1';
+                    break;
+                case 1:
+                    type = 'h2';
+                    break;
+                case 2:
+                    type = 'h3';
+                    break;
+                case 3:
+                    type = 'h4';
+                    break;
+                case 4:
+                    type = 'h5';
+                    break;
+                case 5:
+                    type = 'h6';
+                    break;
+                default:
+                    type = 'h1';
+                    break;
+            }
+
+            heading = document.createElement(type);
+            heading.innerHTML = "Title";
+            title.appendChild(heading);
+            title.style.textAlign = "center";
+
+            return title;
+        }
+    }
+    TitleBlot.blotName = 'title';
+    TitleBlot.tagName = 'div';
+
+    Quill.register(TitleBlot);
+
+    function addTitle(index) {
+        let range = quill.getSelection(true);
+        quill.insertEmbed(index, 'title', true, Quill.sources.USER);
+    }
+    addTitle(0);
+
+    class NewLineBlot extends BlockEmbed {
+        static create() {
+            return document.createElement('br');
+        }
+    }
+    NewLineBlot.blotName = "newLine";
+    NewLineBlot.tagName = "br";
+
+    Quill.register(NewLineBlot);
 
     class QuestionBlot extends BlockEmbed {
         static create() {
@@ -207,15 +266,29 @@
         insertGraph();
     };
 
-    window.onresize = function () {
-        questionTypeX = window.innerWidth / 100 * 30;
-        questionTypeTable.style.right = questionTypeX + "px";
-    }
-
     written.onclick = function () { questionTypeSelected(0); addQuestion(); questionTypeDisplayed = false; }
     mc.onclick = function () { questionTypeSelected(1); addQuestion(); questionTypeDisplayed = false; }
     fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
     tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
+
+    var pages = 1;//number of pages in the assignment
+
+    //key listener
+    window.addEventListener('keydown', function (e) {
+        let range = quill.getSelection(true);
+
+        //if range.index >= 97, it overlaps the page. In this case make a new page
+        if (range.index >= (pages * 97)) {
+            //makeNewPage();
+        }
+
+        switch (e.keyCode) {
+            //add a new line if the user presses enter
+            case 13:
+                quill.insertEmbed(range.index, 'newLine', true, Quill.sources.USER);
+                break;
+        }
+    }, false);
 }
 
 assignmentViewModel = new AssignmentViewModel();

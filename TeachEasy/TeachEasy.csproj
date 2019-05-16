@@ -245,6 +245,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-TeachEasy-20190424123005.mdf" />
+    <Content Include="App_Data\aspnet-TeachEasy-20190424123005_log.ldf">
+      <DependentUpon>aspnet-TeachEasy-20190424123005.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -359,9 +363,7 @@
     <Content Include="Scripts\jquery.min.map" />
     <Content Include="Scripts\jquery.slim.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
