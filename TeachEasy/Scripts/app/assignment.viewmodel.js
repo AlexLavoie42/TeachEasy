@@ -119,6 +119,11 @@
         $('#questionsList p + div').prev('p').attr('class', 'q');
     });
 
+    var saveQuestionsListButton = document.querySelector('#saveQuestionsList');
+    saveQuestionsListButton.addEventListener('click', function () {
+        saveQuestionsList();
+    });
+
     //Types of question answers
     const sectionTypes = {
         WRITTEN: 0,
@@ -152,6 +157,33 @@
 
     function addQuestion() {
         quill.insertEmbed(questionsNum + 1, 'question', true, Quill.sources.USER);
+    }
+
+    function saveQuestionsList() {
+        console.log("triggered");
+        $form = $('#questionListForm');
+        $('#Answer').val($("#questionsList").text());
+        $('#QuestionText').val($("#questionsList").text());
+        $form.submit();
+        /*
+        $.ajax({
+            url: "/Questions/Create",
+            data: {
+                //QuestionText: $("#questionsList").val(),
+                //Answer: $("#questionsList").val(),
+                QuestionText: $("#questionsList").val(),
+                Answer: $("#questionsList").val(),
+                IsPublic: false,
+                SubjectId: ""
+            },
+            method: "POST",
+            dataType: "html",
+
+            success: function (result) {
+                console.log(result);
+            }
+        });
+        */
     }
 
     //Creates Math Graph

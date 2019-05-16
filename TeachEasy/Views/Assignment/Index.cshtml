@@ -31,7 +31,7 @@
         <button id="mc" class="button" type="button">Multiple Choice</button><br />
         <button id="fib" class="button" type="button">Fill in Blank</button><br />
         <button id="tf" class="button" type="button">True/False</button>
-    </form> 
+    </form>
 </div>
 
 <div id="graphInfo" class="infoBox">
@@ -43,7 +43,19 @@
     <button id="addSection">Add Question</button>
 </div>
 
-<div id="questionsList"></div>
+@using (Html.BeginForm("Create", "Questions", FormMethod.Post,
+    new { @id = "questionListForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("QuestionText", "default")
+    @Html.Hidden("Answer", "default")
+    @Html.Hidden("IsPublic", false)
+    @Html.Hidden("SubjectId", "")
+
+    <div id="questionsList"></div>
+
+    <button id="saveQuestionsList">Save</button>
+}
 
 <script src="~/Scripts/quill_1.3.6_teacheasy.js"></script>
 <script src="https://unpkg.com/mathlive"></script>
