@@ -271,12 +271,20 @@
     fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
     tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
 
+    var pages = 1;//number of pages in the assignment
+
     //key listener
     window.addEventListener('keydown', function (e) {
         let range = quill.getSelection(true);
+
+        //if range.index >= 97, it overlaps the page. In this case make a new page
+        if (range.index >= (pages * 97)) {
+            //makeNewPage();
+        }
+
         switch (e.keyCode) {
+            //add a new line if the user presses enter
             case 13:
-                //if the user presses enter, add a <br />
                 quill.insertEmbed(range.index, 'newLine', true, Quill.sources.USER);
                 break;
         }
