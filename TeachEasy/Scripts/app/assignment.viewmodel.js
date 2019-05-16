@@ -108,6 +108,16 @@
     }
     addTitle(0);
 
+    class NewLineBlot extends BlockEmbed {
+        static create() {
+            return document.createElement('br');
+        }
+    }
+    NewLineBlot.blotName = "newLine";
+    NewLineBlot.tagName = "br";
+
+    Quill.register(NewLineBlot);
+
     class QuestionBlot extends BlockEmbed {
         static create() {
             let question = document.createElement('div');
@@ -260,6 +270,17 @@
     mc.onclick = function () { questionTypeSelected(1); addQuestion(); questionTypeDisplayed = false; }
     fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
     tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
+
+    //key listener
+    window.addEventListener('keydown', function (e) {
+        let range = quill.getSelection(true);
+        switch (e.keyCode) {
+            case 13:
+                //if the user presses enter, add a <br />
+                quill.insertEmbed(range.index, 'newLine', true, Quill.sources.USER);
+                break;
+        }
+    }, false);
 }
 
 assignmentViewModel = new AssignmentViewModel();
