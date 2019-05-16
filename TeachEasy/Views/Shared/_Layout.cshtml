@@ -90,7 +90,7 @@
                                 {
                                     @Html.AntiForgeryToken()
                                     <li>
-                                        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage", @class = "nav-link", id = "right-menu-logoff" })
+                                        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage", @class = "nav-link", id = "username" })
                                     </li>
                                     <li><a class ="nav-link" id="right-menu-logoff" href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">Log off</a></li>
                                 }

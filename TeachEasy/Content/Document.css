@@ -44,7 +44,6 @@
 }
 
 .button {
-    
     background-color: white; /* Green */
     border: 2px solid #FF6F69;
     color: black;
@@ -71,6 +70,8 @@
 .ql-editor span {
     display: inline-block;
 }
+
+
 
 @media print {
     .button {
@@ -102,11 +103,7 @@
     }
 }
 
-@media only screen and (min-width: 1120px) {
-    #navbar-menu {
-        display: none;
-    }
-}
+
 
 /*bootstrap overrides*/
 
