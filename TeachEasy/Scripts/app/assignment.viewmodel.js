@@ -271,15 +271,37 @@
     fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
     tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
 
+    //ADDING NEW PAGES//////////////
+
     var pages = 1;//number of pages in the assignment
+
+    function addPage() {
+        pages++;
+
+        let page = document.createElement("div");
+        page.id = "page" + pages;
+        page.style.marginTop = "20px";
+        page.style.textAlign = "center";
+        page.style.height = "990px";
+        page.style.width = "765px";
+        page.style.backgroundColor = "white";
+        page.style.display = "inline-block";
+        page.style.border = "3px solid black";
+        page.style.position = "relative";
+        page.style.right = "3px";
+
+        questionsListDiv.appendChild(document.createElement('br'));
+        questionsListDiv.appendChild(document.createElement('br'));
+        questionsListDiv.appendChild(page);
+    }
 
     //key listener
     window.addEventListener('keydown', function (e) {
         let range = quill.getSelection(true);
 
         //if range.index >= 97, it overlaps the page. In this case make a new page
-        if (range.index >= (pages * 97)) {
-            //makeNewPage();
+        if (range.index >= (pages * 96)) {
+            addPage();
         }
 
         switch (e.keyCode) {
