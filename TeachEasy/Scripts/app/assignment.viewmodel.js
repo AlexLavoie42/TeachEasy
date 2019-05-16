@@ -92,6 +92,7 @@
             heading = document.createElement(type);
             heading.innerHTML = "Title";
             title.appendChild(heading);
+            title.style.textAlign = "center";
 
             return title;
         }
@@ -101,11 +102,11 @@
 
     Quill.register(TitleBlot);
 
-    function addTitle() {
+    function addTitle(index) {
         let range = quill.getSelection(true);
-        quill.insertEmbed(range.index, 'title', true, Quill.sources.USER);
+        quill.insertEmbed(index, 'title', true, Quill.sources.USER);
     }
-    addTitle();
+    addTitle(0);
 
     class QuestionBlot extends BlockEmbed {
         static create() {
@@ -254,11 +255,6 @@
     insertGraphB.onclick = function () {
         insertGraph();
     };
-
-    window.onresize = function () {
-        questionTypeX = window.innerWidth / 100 * 30;
-        questionTypeTable.style.right = questionTypeX + "px";
-    }
 
     written.onclick = function () { questionTypeSelected(0); addQuestion(); questionTypeDisplayed = false; }
     mc.onclick = function () { questionTypeSelected(1); addQuestion(); questionTypeDisplayed = false; }
