@@ -47,16 +47,10 @@ footer {
             display: none;
         }
     
-    
-    
-    
-    
-    
     .menu-right {
         position: absolute;
         right: 1%;
     }
-
 
     #nav-menu-right li {
         display: inline;
@@ -74,13 +68,6 @@ footer {
     margin: 0 auto;
     height: 750px;
 }
-
-
-
-
-
-
-
 
 .home-page-button-wrapper {
     display: table-cell;
@@ -105,7 +92,6 @@ a.home-page-button:hover {
     color: white;
 }
 
-
 #logo {
     position: absolute;
     width: 200px;
@@ -114,6 +100,7 @@ a.home-page-button:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 /** Bootstrap Overrides **/
 

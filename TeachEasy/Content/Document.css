@@ -11,13 +11,30 @@
     border: 2px solid #FF6F69;
     height: 40px;
 }
+/* side-bar styling */
 
 #reqQuestionType {
-    border: solid black 1px;
-    background-color: grey;
+    
+   
     display: none;
 }
 
+    #reqQuestionType button {
+        background-color: #f9f0f0;
+        text-align: left; 
+        padding-left: 2em;
+    }
+    #addSection {
+        padding-left: .75em;
+    }
+    #reqQuestionType #addSection {
+    }
+
+    #question_modifiers button {
+        text-align: left;
+    }
+    
+/********************************************/
 #graphInfo {
     border: 1px solid black;
     border-radius: 15px;
@@ -30,15 +47,23 @@
 
 #graphInfo input{text-align: center;}
 
-#toolbar{
+#toolbar {
     border: 1px solid black;
     text-align: center;
     margin-top: 25px;
+    background-color: #f9f0f0;
 }
+    #toolbar p {
+        text-align: left;
+        padding-left: .75em;
+        
+    }
 
 #toolbar button{
     width: 50px;
     margin: 8px 0px 8px 0px;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .button {
