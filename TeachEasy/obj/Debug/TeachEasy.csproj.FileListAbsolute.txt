@@ -114,3 +114,4 @@ C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\obj\Debug\TeachEa
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\obj\Debug\TeachEasy.csproj.CopyComplete
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\obj\Debug\TeachEasy.dll
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\obj\Debug\TeachEasy.pdb
+C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\obj\Debug\TeachEasy.csprojAssemblyReference.cache

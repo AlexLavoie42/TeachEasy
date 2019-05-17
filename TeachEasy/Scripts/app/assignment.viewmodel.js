@@ -206,12 +206,14 @@
 
     function addQuestion() {
         quill.insertEmbed(questionsNum + 1, 'question', true, Quill.sources.USER);
+        $('#asgn-page-content p + div').prev('p').attr('class', 'q');
+
     }
 
     function saveQuestionsList() {
         $form = $('#questionListForm');
         $('#Answer').val($("#asgn-page-content").text());
-        $('#QuestionText').val($("#asgn-page-content").text());
+        $('#QuestionText').val($("#asgn-page-content").html());
         $form.submit();
         /*
         $.ajax({

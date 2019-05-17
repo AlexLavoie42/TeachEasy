@@ -17,6 +17,8 @@ namespace TeachEasy.Models
         public int Id { get; set; }
 
         [Required]
+        [AllowHtml]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Question")]
         public string QuestionText { get; set; }
 
