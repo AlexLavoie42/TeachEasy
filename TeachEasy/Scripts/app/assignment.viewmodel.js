@@ -25,6 +25,7 @@
     ];
     var questionDivs = new Array();//array holding all individual question divs
     var questionsNum;//number of question divs
+    var qCounter = 0;
 
     var graphInfo = document.getElementById("graphInfo");
 
@@ -124,7 +125,7 @@
             questionDivs[questionsNum++] = question;
             question.className = 'question';
 
-            quill.insertText(questionsNum, questionsArray[questionType]);
+            quill.insertText(questionsNum, ++qCounter + ": " + questionsArray[questionType]);
             question.appendChild(document.createElement('br'));
             question.appendChild(document.createElement('br'));
 
@@ -165,6 +166,11 @@
     var saveQuestionsListButton = document.querySelector('#saveQuestionsList');
     saveQuestionsListButton.addEventListener('click', function () {
         saveQuestionsList();
+    });
+
+    var closeGraph = document.querySelector('#exitGraph');
+    closeGraph.addEventListener('click', function () {
+        closeGraphEq();
     });
 
     //Types of question answers
