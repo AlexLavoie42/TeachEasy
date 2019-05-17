@@ -11,41 +11,9 @@ footer {
 
 /* puts username and logoff on the the right of navbar at the specified view-width*/
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 992px) {
     /* bootstrap override */
-
-
-    .navbar-expand-lg {
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-    }
-
-        .navbar-expand-lg .navbar-nav {
-            flex-direction: row;
-        }
-
-            .navbar-expand-lg .navbar-nav .dropdown-menu {
-                position: absolute;
-            }
-
-            .navbar-expand-lg .navbar-nav .nav-link {
-                padding-right: 0.5rem;
-                padding-left: 0.5rem;
-            }
-
-        .navbar-expand-lg > .container,
-        .navbar-expand-lg > .container-fluid {
-            flex-wrap: nowrap;
-        }
-
-        .navbar-expand-lg .navbar-collapse {
-            display: flex !important;
-            flex-basis: auto;
-        }
-
-        .navbar-expand-lg .navbar-toggler {
-            display: none;
-        }
+    
     
     .menu-right {
         position: absolute;
@@ -58,10 +26,33 @@ footer {
     }
     #right-menu-logoff {
         width: 68px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
-    #username { 
+    a#username {
+    padding-top: 0;
+    padding-bottom: 0;
     }
 }
+
+/* hides username at specified view-width */
+@media only screen and (max-width: 1090px) {
+    a#username {
+        visibility: hidden;
+    }
+}
+
+/* shows username in the menu at specified view-width */
+@media only screen and (max-width: 992px) {
+    a#username {
+        visibility: visible;
+    }
+}
+
+
+
+
+
 
 .home-content {
     display: table;
