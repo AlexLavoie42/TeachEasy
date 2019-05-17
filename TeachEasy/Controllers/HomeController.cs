@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace TeachEasy.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()
