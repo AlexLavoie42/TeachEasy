@@ -210,8 +210,8 @@
 
     function saveQuestionsList() {
         $form = $('#questionListForm');
-        $('#Answer').val($("#questionsList").text());
-        $('#QuestionText').val($("#questionsList").text());
+        $('#Answer').val($("#asgn-page-content").text());
+        $('#QuestionText').val($("#asgn-page-content").text());
         $form.submit();
         /*
         $.ajax({
