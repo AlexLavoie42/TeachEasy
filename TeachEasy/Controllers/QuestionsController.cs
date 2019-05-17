@@ -59,12 +59,23 @@ namespace TeachEasy.Controllers
                 question.Ip = GetIPAddress();
                 question.MacAddress = GetMacAddress();
 
-                db.Questions.Add(question);
-                await db.SaveChangesAsync();
+                Question[] questionList = parsingQuestions(question);
+                foreach (Question element in questionList)
+                {
+                    db.Questions.Add(element);
+                    await db.SaveChangesAsync();
+                }
+
                 return RedirectToAction("Index");
             }
 
             return View(question);
+        }
+
+        private Question[] parsingQuestions(Question question)
+        {
+            Question[] questionList = { question };
+            return questionList;
         }
 
         // GET: Questions/Edit/5

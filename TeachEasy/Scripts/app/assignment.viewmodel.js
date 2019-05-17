@@ -203,7 +203,6 @@
     }
 
     function saveQuestionsList() {
-        console.log("triggered");
         $form = $('#questionListForm');
         $('#Answer').val($("#questionsList").text());
         $('#QuestionText').val($("#questionsList").text());
