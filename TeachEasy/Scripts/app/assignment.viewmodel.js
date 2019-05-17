@@ -319,7 +319,7 @@
         questionsListDiv.appendChild(page);
     }
 
-    //key listener
+    /*key listener
     window.addEventListener('keydown', function (e) {
         let range = quill.getSelection(true);
 
@@ -334,7 +334,7 @@
                 quill.insertEmbed(range.index, 'newLine', true, Quill.sources.USER);
                 break;
         }
-    }, false);
+    }, false);*/
 }
 
 assignmentViewModel = new AssignmentViewModel();

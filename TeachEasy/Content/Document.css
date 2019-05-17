@@ -94,6 +94,13 @@
     display: inline-block;
 }
 
+.ql-clipboard {
+    display: none;
+}
+
+footer {
+    display: none;
+}
 
 
 @media print {
@@ -101,8 +108,8 @@
         display: none;
     }
 
-    #asgn-page-background {
-        display: none;
+    #asgn-page-content {
+        width: 100%;
     }
 
     #reqQuestionType {
@@ -122,6 +129,10 @@
     }
 
     #keyboard{
+        display: none;
+    }
+
+    #sidebar-wrapper{
         display: none;
     }
 }
