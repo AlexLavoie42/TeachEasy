@@ -1,11 +1,72 @@
-﻿body {
+﻿
 
-    padding-bottom: 20px;
+body {
+    min-height: 100%;
 }
+/* puts footer at the bottom of the view*/
+footer {
+    margin-top: -40px;
+}
+
+
+/* puts username and logoff on the the right of navbar at the specified view-width*/
+
+@media only screen and (min-width: 1200px) {
+    /* bootstrap override */
+
+
+    .navbar-expand-lg {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+
+        .navbar-expand-lg .navbar-nav {
+            flex-direction: row;
+        }
+
+            .navbar-expand-lg .navbar-nav .dropdown-menu {
+                position: absolute;
+            }
+
+            .navbar-expand-lg .navbar-nav .nav-link {
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+            }
+
+        .navbar-expand-lg > .container,
+        .navbar-expand-lg > .container-fluid {
+            flex-wrap: nowrap;
+        }
+
+        .navbar-expand-lg .navbar-collapse {
+            display: flex !important;
+            flex-basis: auto;
+        }
+
+        .navbar-expand-lg .navbar-toggler {
+            display: none;
+        }
+    
+    .menu-right {
+        position: absolute;
+        right: 1%;
+    }
+
+    #nav-menu-right li {
+        display: inline;
+        float: left;
+    }
+    #right-menu-logoff {
+        width: 68px;
+    }
+    #username { 
+    }
+}
+
 .home-content {
-    height: 750px;
     display: table;
     margin: 0 auto;
+    height: 750px;
 }
 
 .home-page-button-wrapper {
@@ -25,6 +86,7 @@ a.home-page-button {
     width: 200px;
     height: 40px;
 }
+
 a.home-page-button:hover {
     text-decoration: none;
     color: white;
@@ -39,13 +101,74 @@ a.home-page-button:hover {
     margin-right: auto;
 }
 
+
 /** Bootstrap Overrides **/
-
-
 
 .navbar-collapse collapse show {
     position: absolute;
 }
+
+/*Assignment page css*/
+
+.side-button {
+    width: 170px;
+    padding-top: 0px;
+}
+
+#font-header {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+#asgn-page-content {
+    margin-top: 20px;
+    text-align: left;
+    height: 990px;
+    width: 765px;
+    background-color: white;
+    display: inline-block;
+    border: 3px solid black;
+}
+
+#asgn-page-background {
+    text-align: center;
+    background-color: rgba(229, 229, 229, 1);
+}
+
+/*Login page css*/
+
+#login-page-content {
+    display: table;
+    margin: 0 auto;
+}
+
+#login-wrapper {
+    display: table-cell;
+    top: 50px;
+    border: 1px solid #ccc;
+    width: 360px;
+    position: relative;
+    top: 50px;
+    padding: 20px;
+}
+
+#login-row {
+    display: block; 
+}
+
+/*overrides bootstrap login responsiveness*/
+#login-collumn-8, #login-collumn-4{
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
 
 
 /****bootstrap code below, edit at your own risk**************************************/
@@ -75,12 +198,10 @@ textarea {
 }
 
 
-@media only screen and (max-width: 767px) {
-    .nofloat {
-        float: none;
-        padding: 10px 15px;
-    }
-}
 
-/* Log in styling */
+
+
+
+
+
 

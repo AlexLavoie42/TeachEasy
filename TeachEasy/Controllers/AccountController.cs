@@ -331,6 +331,7 @@ namespace TeachEasy.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
+        [RequireHttps]
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -361,6 +362,7 @@ namespace TeachEasy.Controllers
 
         //
         // POST: /Account/ExternalLoginConfirmation
+        [RequireHttps]
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
