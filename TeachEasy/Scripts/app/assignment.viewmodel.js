@@ -31,6 +31,11 @@
     //Initialize math equations
     let BlockEmbed = Quill.import('blots/block/embed');
 
+    //page info
+    var curPage = 0;//the page that the user is currently on
+    var pages = 1;//number of pages in the assignment
+    var extraPages = new Array();
+
     class MathBlot extends BlockEmbed {
         static create() {
             let node = super.create();
@@ -56,57 +61,7 @@
     GraphBlot.blotName = 'graph';
     GraphBlot.tagName = 'div';
 
-    Quill.register(GraphBlot)
-
-    var headingType = 0;
-    class TitleBlot extends BlockEmbed {
-        static create() {
-            let title = document.createElement('div');
-            let type;
-            let heading;
-
-            switch (headingType) {
-                case 0:
-                    type = 'h1';
-                    break;
-                case 1:
-                    type = 'h2';
-                    break;
-                case 2:
-                    type = 'h3';
-                    break;
-                case 3:
-                    type = 'h4';
-                    break;
-                case 4:
-                    type = 'h5';
-                    break;
-                case 5:
-                    type = 'h6';
-                    break;
-                default:
-                    type = 'h1';
-                    break;
-            }
-
-            heading = document.createElement(type);
-            heading.innerHTML = "Title";
-            title.appendChild(heading);
-            title.style.textAlign = "center";
-
-            return title;
-        }
-    }
-    TitleBlot.blotName = 'title';
-    TitleBlot.tagName = 'div';
-
-    Quill.register(TitleBlot);
-
-    function addTitle(index) {
-        let range = quill.getSelection(true);
-        quill.insertEmbed(index, 'title', true, Quill.sources.USER);
-    }
-    addTitle(0);
+    Quill.register(GraphBlot);
 
     class NewLineBlot extends BlockEmbed {
         static create() {
@@ -117,6 +72,58 @@
     NewLineBlot.tagName = "br";
 
     Quill.register(NewLineBlot);
+
+    var titles = new Array();
+    function addTitle(headingType) {
+        if (questionsArray.length > 0) {
+            let heading;
+            switch (headingType) {
+                case 0:
+                    heading = 'h1';
+                    break;
+                case 1:
+                    heading = 'h2';
+                    break;
+                case 2:
+                    heading = 'h3';
+                    break;
+                case 3:
+                    heading = 'h4';
+                    break;
+                case 4:
+                    heading = 'h5';
+                    break;
+                case 5:
+                    heading = 'h6';
+                    break;
+            }
+
+            let index = quill.getSelection(true).index;
+
+            titles[titles.length - 1] = document.createElement('input');
+            titles[titles.length - 1].className = 'title';
+            titles[titles.length - 1].onclick = function (e) {
+                e.preventDefault();
+                return false;
+            }
+            titles[titles.length - 1].value = 'Title';
+            titles[titles.length - 1].width = questionsListDiv.width + "px";
+            titles[titles.length - 1].style.position = 'absolute';
+            titles[titles.length - 1].style.left = questionsListDiv.offsetLeft + "px";
+            if (index == 0) titles[titles.length - 1].style.top = '100px';
+            else titles[titles.length - 1].style.top = index * 4 + "px";
+            document.body.appendChild(titles[titles.length - 1]);
+
+            let newLineCount = 4;//number of new lines to be added after title is inserted
+            let i;
+            for (i = 0; i < newLineCount; i++)
+                quill.insertEmbed(index, 'newLine', true, Quill.sources.USER);
+        } else
+            window.alert("You must add a question before displaying another title.");
+    }
+    addTitle(0);
+
+    document.getElementById("addTitle").onclick = function () { addTitle(0); };
 
     class QuestionBlot extends BlockEmbed {
         static create() {
@@ -271,10 +278,14 @@
     fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
     tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
 
+    window.onresize = function(){
+        let i;
+        for (i = 0; i < titles.length; i++)
+            titles[i].style.left = questionsListDiv.offsetLeft;
+    };
+
     //ADDING NEW PAGES//////////////
-
-    var pages = 1;//number of pages in the assignment
-
+    
     function addPage() {
         pages++;
 
@@ -293,20 +304,22 @@
         questionsListDiv.appendChild(document.createElement('br'));
         questionsListDiv.appendChild(document.createElement('br'));
         questionsListDiv.appendChild(page);
-    }
 
+        extraPages[pages - 2] = page;
+        curPage++;
+    }
+    
     //key listener
     window.addEventListener('keydown', function (e) {
-        let range = quill.getSelection(true);
-
-        //if range.index >= 97, it overlaps the page. In this case make a new page
-        if (range.index >= (pages * 96)) {
-            addPage();
-        }
-
         switch (e.keyCode) {
             //add a new line if the user presses enter
             case 13:
+                let range = quill.getSelection(true);
+                console.log(quill.getSelection(false).index);
+                //if range.index >= 97, it overlaps the page. In this case make a new page
+                if (range.index >= (pages * 50)) {
+                    addPage();
+                }
                 quill.insertEmbed(range.index, 'newLine', true, Quill.sources.USER);
                 break;
         }
