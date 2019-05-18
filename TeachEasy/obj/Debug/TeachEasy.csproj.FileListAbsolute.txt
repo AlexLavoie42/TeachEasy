@@ -50,6 +50,7 @@ C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\roslyn\VBCSCo
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Antlr3.Runtime.dll
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\EntityFramework.dll
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\EntityFramework.SqlServer.dll
+C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\HtmlAgilityPack.dll
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -83,6 +84,8 @@ C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\WebGrease.dll
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Antlr3.Runtime.pdb
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\EntityFramework.xml
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\EntityFramework.SqlServer.xml
+C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\HtmlAgilityPack.pdb
+C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\HtmlAgilityPack.xml
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\JaeHunDaniel\source\repos\Team-20-COMP-2930\TeachEasy\bin\Microsoft.AspNet.Identity.Owin.xml

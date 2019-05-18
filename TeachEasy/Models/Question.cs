@@ -11,7 +11,7 @@ using System.Web.Mvc;
 namespace TeachEasy.Models
 {
 
-    public class Question
+    public class Question : ICloneable
     {
         [Key]
         public int Id { get; set; }
@@ -50,5 +50,9 @@ namespace TeachEasy.Models
         [Display(Name = "Last modified at")]
         public DateTime ModifiedAt { get; set; }
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
