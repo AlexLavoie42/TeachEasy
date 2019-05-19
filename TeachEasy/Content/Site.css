@@ -2,6 +2,8 @@
 
 body {
     min-height: 100%;
+   
+    
 }
 /* puts footer at the bottom of the view*/
 footer {
@@ -14,7 +16,9 @@ footer {
 @media only screen and (min-width: 992px) {
     /* bootstrap override */
     
-    
+    #asgn-page-background {
+        text-align: center;
+    }
     .menu-right {
         position: absolute;
         right: 1%;
@@ -49,11 +53,6 @@ footer {
     }
 }
 
-
-
-
-
-
 .home-content {
     display: table;
     margin: 0 auto;
@@ -85,6 +84,7 @@ a.home-page-button:hover {
 
 #logo {
     position: absolute;
+    top: 10px;
     width: 200px;
     left: 0;
     right: 0;
@@ -118,13 +118,48 @@ a.home-page-button:hover {
     width: 765px;
     background-color: white;
     display: inline-block;
-    border: 3px solid black;
+    border: 3px solid black;  
 }
 
-#asgn-page-background {
-    text-align: center;
-    background-color: rgba(229, 229, 229, 1);
+
+
+
+/* scales page down at specified view-width */
+
+@media only screen and (max-width: 380px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    #asgn-page-background {
+        width: 100%;
+        margin: auto 0;
+        transform: scale(.62);
+        transform-origin: left; 
+        position: relative;
+        top: -200px;
+        left: -13px;
+    }
+
+    #asgn-page-content{
+        transform: scale(.75);
+        transform-origin: left;
+        display: block; 
+    }
+
+    /* change background color */
+    .container-fluid {
+        background-color: rgb(248, 249, 250);
+    }
+    /* positioning math tool */
+    #graphInfo {
+        top: -920px!important;
+        left: 3px!important;
+    }
 }
+
+/*//////////////////////////////////*/
 
 /*Login page css*/
 

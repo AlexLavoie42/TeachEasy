@@ -5,11 +5,13 @@
  */
 body {
   overflow-x: hidden;
+  
 }
+
 
 #sidebar-wrapper {
   min-height: 100vh;
-  margin-left: -15rem;
+  margin-left: -11rem;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
@@ -33,18 +35,129 @@ body {
   margin-left: 0;
 }
 
-@media (min-width: 768px) {
-  #sidebar-wrapper {
-    margin-left: 0;
-  }
+/* hide side-bar */
 
-  #page-content-wrapper {
-    min-width: 0;
-    width: 100%;
-  }
+@media (max-width: 370px) {
+    .navbar {
+        z-index: 1;
+    }
+    #wrapper {
+      
+        height: 750px;
+        position: relative;
+    }
+    #sidebar-wrapper {
+        margin-left: 0;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        top: 60px;
+        min-height: 0;
+        z-index: 1;
+    }
+    
+        #sidebar-wrapper > div.sidebar-heading {
+            display: none;
+        }
 
+        #sidebar-wrapper div {
+            text-align: left;
+            float: left;
+            display: inline-block;
+            font-size: 0;
+        }
+    /* change button text */
 
-  #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
-  }
+    p.descView-text {
+        display: none;
+    }
+    p.mobView-text {
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    #question_modifiers button {
+        display: inline-block;
+        padding: 0px;
+        width: 62px;
+        height: 65px;
+        margin-bottom: 0px;
+    }
+
+    #question_section button {
+        display: block;
+        width: 67px;
+    }
+
+    #question_section {
+        float: left;
+    }
+
+    #toolbar {
+        margin-top: 0px !important;
+        height: 67px;
+        border: none!important;
+    }
+
+        #toolbar p {
+            display: none;
+        }
+
+        #toolbar button {
+            display: inline;
+            margin: 0 0 0 0 !important;
+            font-size: 12pt;
+        }
+
+    .list-group-item {
+        font-size: 12px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    #addSection {
+        height: 50px;
+    }
+    /* positioning dropdown menu*/
+
+    #reqQuestionType {
+       position: absolute;
+      
+       right: 5px;
+      
+    }
+    #reqQuestionType button{
+       width: 150px;
+    }
+   
+    
 }
+@media (min-width: 380px) {
+    p.mobView-text {
+        display: none;
+    }
+    p.descView-text {
+        display: normal;
+    }
+    
+
+    
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+
