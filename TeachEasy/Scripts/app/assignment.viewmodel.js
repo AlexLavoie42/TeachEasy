@@ -25,6 +25,7 @@
     ];
     var questionDivs = new Array();//array holding all individual question divs
     var questionsNum;//number of question divs
+    var numOfQuestions = 0;//questionsNum is NaN
 
     var graphInfo = document.getElementById("graphInfo");
 
@@ -127,11 +128,12 @@
 
     class QuestionBlot extends BlockEmbed {
         static create() {
+            numOfQuestions++;
             let question = document.createElement('div');
             questionDivs[questionsNum++] = question;
             question.className = 'question';
 
-            quill.insertText(questionsNum, questionsNum + "." + questionsArray[questionType]);
+            quill.insertText(questionsNum, numOfQuestions + ". " + questionsArray[questionType]);
             let answer = document.createElement('div');
 
             switch (questionType) {
@@ -315,11 +317,6 @@
             //add a new line if the user presses enter
             case 13:
                 let range = quill.getSelection(true);
-                console.log(quill.getSelection(false).index);
-                //if range.index >= 97, it overlaps the page. In this case make a new page
-                if (range.index >= (pages * 50)) {
-                    addPage();
-                }
                 quill.insertEmbed(range.index, 'newLine', true, Quill.sources.USER);
                 break;
         }
