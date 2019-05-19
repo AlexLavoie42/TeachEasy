@@ -97,6 +97,13 @@
     display: inline-block;
 }
 
+.title{
+    text-align: center;
+    font-size: 50px;
+    background: none;
+    border: none;
+    width: 765px;
+}
 
 
 @media print {
