@@ -2,6 +2,7 @@
 
 body {
     min-height: 100%;
+    background-color: rgb(248, 249, 250);
 }
 /* puts footer at the bottom of the view*/
 footer {
@@ -9,44 +10,48 @@ footer {
 }
 
 
+
+#nav-layout {
+    
+}
+#page-content-wrapper {
+    
+}
+
+/* registration page css*/
+#reg {
+    font-size: 1.5rem;
+}
+#reg-link {
+    color: blue;
+}
+
+#reg-content {
+    display: table;
+    margin: 0 auto;
+}
+
+#reg-wrapper {
+    display: table-cell;
+    top: 50px;
+    border: 1px solid #ccc;
+    width: 360px;
+    position: relative;
+    top: 50px;
+    padding: 20px;
+}
+
+
+
+
 /* puts username and logoff on the the right of navbar at the specified view-width*/
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 992px) {
     /* bootstrap override */
-
-
-    .navbar-expand-lg {
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-    }
-
-        .navbar-expand-lg .navbar-nav {
-            flex-direction: row;
-        }
-
-            .navbar-expand-lg .navbar-nav .dropdown-menu {
-                position: absolute;
-            }
-
-            .navbar-expand-lg .navbar-nav .nav-link {
-                padding-right: 0.5rem;
-                padding-left: 0.5rem;
-            }
-
-        .navbar-expand-lg > .container,
-        .navbar-expand-lg > .container-fluid {
-            flex-wrap: nowrap;
-        }
-
-        .navbar-expand-lg .navbar-collapse {
-            display: flex !important;
-            flex-basis: auto;
-        }
-
-        .navbar-expand-lg .navbar-toggler {
-            display: none;
-        }
     
+    #asgn-page-background {
+        text-align: center;
+    }
     .menu-right {
         position: absolute;
         right: 1%;
@@ -58,8 +63,27 @@ footer {
     }
     #right-menu-logoff {
         width: 68px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
-    #username { 
+    a#username {
+    padding-top: 0;
+    padding-bottom: 0;
+    }
+    
+}
+
+/* hides username at specified view-width */
+@media only screen and (max-width: 1090px) {
+    a#username {
+        visibility: hidden;
+    }
+}
+
+/* shows username in the menu at specified view-width */
+@media only screen and (max-width: 992px) {
+    a#username {
+        visibility: visible;
     }
 }
 
@@ -94,6 +118,7 @@ a.home-page-button:hover {
 
 #logo {
     position: absolute;
+    top: 10px;
     width: 200px;
     left: 0;
     right: 0;
@@ -127,13 +152,50 @@ a.home-page-button:hover {
     width: 765px;
     background-color: white;
     display: inline-block;
-    border: 3px solid black;
+    border: 3px solid black;  
 }
 
-#asgn-page-background {
-    text-align: center;
-    background-color: rgba(229, 229, 229, 1);
+input.title {
+    position: relative!important;
 }
+
+
+/* scales page down at specified view-width */
+
+@media only screen and (max-width: 380px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    #asgn-page-background {
+        width: 100%;
+        margin: auto 0;
+        transform: scale(.62);
+        transform-origin: left; 
+        position: relative;
+        top: -200px;
+        left: -13px;
+    }
+
+    #asgn-page-content{
+        transform: scale(.75);
+        transform-origin: left;
+        display: block; 
+    }
+
+    /* change background color */
+    .container-fluid {
+        background-color: rgb(248, 249, 250);
+    }
+    /* positioning math tool */
+    #graphInfo {
+        top: -920px!important;
+        left: 3px!important;
+    }
+}
+
+/*//////////////////////////////////*/
 
 /*Login page css*/
 
