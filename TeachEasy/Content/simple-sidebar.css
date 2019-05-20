@@ -9,21 +9,27 @@ body {
 }
 
 #sidebar-wrapper, .list-group-item {
+    background-color: rgb(134, 46, 132) !important;
+    border: none !important;
+}
+
+#reqQuestionType button {
     background-color: rgb(170, 60, 168) !important;
-    border: none!important;
+}
+#reqQuestionType button:hover {
+    background-color:  rgb(208, 83, 204) !important;
 }
 .list-group-item {
     color: white;
     font-size: 1rem;
-    
-    
 }
+
 p.descView-text, .mobView-text{
     margin-bottom: 0;
 }
 
-.list-group-item:hover {
-    background-color: rgb(208, 83, 204)!important;
+.main-list:hover {
+    background-color: rgb(170, 60, 168) !important;
 }
 
 
@@ -124,13 +130,10 @@ p.descView-text, .mobView-text{
         margin-top: 0px !important;
         height: 35px;
         width: 100%;
-        display: inline-flex!important;
-        
+        display: inline-flex!important; 
         margin-right: auto;
         text-align: center!important;
-        flex-direction: row;
-        background-color: black!important;
-        
+        flex-direction: row; 
     }
 
         #toolbar  p {
@@ -156,9 +159,11 @@ p.descView-text, .mobView-text{
        right: 5px;
        display: none!important;
     }
+
     #reqQuestionType button{
        width: 150px;
     }
+
     #addTitle {
       
     }
