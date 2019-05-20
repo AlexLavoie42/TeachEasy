@@ -155,9 +155,7 @@ a.home-page-button:hover {
     border: 3px solid black;  
 }
 
-input.title {
-    position: relative!important;
-}
+
 
 
 /* scales page down at specified view-width */
