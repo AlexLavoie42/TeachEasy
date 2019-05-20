@@ -26,40 +26,43 @@
         {
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading"><p>Tool Bar</p> </div>
-            <div id="question_modifiers">
-                <button type="button" class="list-group-item side-button" id="math"><p class="descView-text">Math Equation</p><p class="mobView-text">Math</p></button>
-                <button type="button" class="list-group-item side-button" id="insertGraph"><p class="descView-text">Insert Graph</p><p class="mobView-text">Graph</p></button>
-                <button type="button" class="list-group-item side-button" id="printButton" onclick="window.print()"><p class="descView-text">Print/Export</p><p class="mobView-text">Print/Exp</p></button>
-                <button type="button" class="list-group-item side-button" id="addTitle">Add Title</button>
-            </div>
-            <div id="toolbar">
-                <p>font formatting</p>
-                <!-- Add a bold and italic button -->
-                <button class="ql-bold"><b title="Bold">B</b></button>
-                <button class="ql-italic" style="font-family: 'Times New Roman'"><i title="Italic">I</i></button><br/>
-                <!-- Add subscript and superscript buttons -->
-                <button class="ql-script" value="sub" title="Subscript">X<sub>y</sub></button>
-                <button class="ql-script" value="super" title="Superscript">X<sup>y</sup></button>
-            </div>
-            <div id="question_section">
-                <button id="addSection" class="list-group-item side-button addSection-head"><p class="descView-text">Add Question ></p><p class="mobView-text">Add ></p></button>
-                <div id="reqQuestionType">
-                    <form>
-                        <button id="written" class="list-group-item side-button" type="button">Written</button>
-                        <button id="mc" class="list-group-item side-button" type="button">Multiple Choice</button>
-                        <button id="fib" class="list-group-item side-button" type="button">Fill in Blank</button>
-                        <button id="tf" class="list-group-item side-button" type="button">True/False</button>
-                    </form>
+            <div id="menu-top">
+                <div id="question_modifiers">
+                    <button type="button" class="list-group-item side-button" id="math"><p class="descView-text">Math Equation</p><p class="mobView-text">Math</p></button>
+                    <button type="button" class="list-group-item side-button" id="insertGraph"><p class="descView-text">Insert Graph</p><p class="mobView-text">Graph</p></button>
+                    <button type="button" class="list-group-item side-button" id="printButton" onclick="window.print()"><p class="descView-text">Print/Export</p><p class="mobView-text">Print/Exp</p></button>
+                    <button type="button" class="list-group-item side-button" id="addTitle"><p class="descView-text">Add Title</p><p class="mobView-text">Title</p></button>
+                </div>
+                <div id="question_section">
+                    <button id="addSection" class="list-group-item side-button addSection-head"><p class="descView-text">Add Question ></p><p class="mobView-text">Add ></p></button>
+                    <div id="reqQuestionType">
+                        <form>
+                            <button id="written" class="list-group-item side-button" type="button">Written</button>
+                            <button id="mc" class="list-group-item side-button" type="button">Multiple Choice</button>
+                            <button id="fib" class="list-group-item side-button" type="button">Fill in Blank</button>
+                            <button id="tf" class="list-group-item side-button" type="button">True/False</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+                <div id="toolbar">
+                    <p>font formatting</p>
+                    <!-- Add a bold and italic button -->
+                    <button class="ql-bold"><b title="Bold">B</b></button>
+                    <button class="ql-italic" style="font-family: 'Times New Roman'"><i title="Italic">I</i></button><br />
+                    <!-- Add subscript and superscript buttons -->
+                    <button class="ql-script" value="sub" title="Subscript">X<sub>y</sub></button>
+                    <button class="ql-script" value="super" title="Superscript">X<sup>y</sup></button>
+                </div>
+
+            </div>
         }
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
 
         <div id="page-content-wrapper">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="nav-layout">
                 <!--                           <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
                 -->
                 
@@ -78,7 +81,7 @@
                                 @Html.ActionLink("Assignment Editor", "Index", "Assignment", new { area = "" }, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item active">
-                                @Html.ActionLink("About Us", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                                @Html.ActionLink("About Us", "Index", "AboutUs", new { area = "" }, new { @class = "nav-link" })
                             </li>
                         </ul>
 

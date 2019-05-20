@@ -1,0 +1,33 @@
+.title {
+	margin-top: 5%;
+}
+
+.title p {
+	font-size: 4em;
+	text-align: center;
+}
+
+.text {
+	width: 40%;
+	height: 30%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.contactus {
+	width: 40%;
+	height: 10%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.contactTitle {
+	margin-top: 2%;
+	font-size: 2em;
+	text-align: center;
+}
+
+.info p {
+	text-align: center;
+	
+}

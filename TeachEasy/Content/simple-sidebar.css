@@ -4,18 +4,36 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 body {
-  overflow-x: hidden;
-  
+  /*overflow-x: hidden;*/
+  overflow-x: scroll;
+}
+
+#sidebar-wrapper, .list-group-item {
+    background-color: rgb(170, 60, 168) !important;
+    border: none!important;
+}
+.list-group-item {
+    color: white;
+    font-size: 1rem;
+    
+    
+}
+p.descView-text, .mobView-text{
+    margin-bottom: 0;
+}
+
+.list-group-item:hover {
+    background-color: rgb(208, 83, 204)!important;
 }
 
 
 #sidebar-wrapper {
-  min-height: 100vh;
-  margin-left: -11rem;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
+    min-height: 100vh;
+    margin-left: -11rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -50,7 +68,7 @@ body {
         margin-left: 0;
         width: 100%;
         position: absolute;
-        display: flex;
+        justify-content: space-around;
         top: 60px;
         min-height: 0;
         z-index: 1;
@@ -62,8 +80,8 @@ body {
 
         #sidebar-wrapper div {
             text-align: left;
-            float: left;
-            display: inline-block;
+            
+            
             font-size: 0;
         }
     /* change button text */
@@ -76,13 +94,22 @@ body {
         text-align: center;
     }
 
-    #question_modifiers button {
-        display: inline-block;
+    #question_modifiers button, #addSection {
+        
         padding: 0px;
-        width: 62px;
+        width: 4em;
+        display: flex;
+        justify-content: space-around;
         height: 65px;
         margin-bottom: 0px;
+        
     }
+    #question_modifiers {
+        display:flex;
+        justify-content: space-around;
+        float: left;
+    }
+    
 
     #question_section button {
         display: block;
@@ -90,21 +117,28 @@ body {
     }
 
     #question_section {
-        float: left;
+       
     }
 
     #toolbar {
         margin-top: 0px !important;
-        height: 67px;
-        border: none!important;
+        height: 35px;
+        width: 100%;
+        display: inline-flex!important;
+        
+        margin-right: auto;
+        text-align: center!important;
+        flex-direction: row;
+        background-color: black!important;
+        
     }
 
-        #toolbar p {
+        #toolbar  p {
             display: none;
         }
 
         #toolbar button {
-            display: inline;
+            display: inline-block;
             margin: 0 0 0 0 !important;
             font-size: 12pt;
         }
@@ -114,21 +148,20 @@ body {
         vertical-align: middle;
         text-align: center;
     }
-    #addSection {
-        height: 50px;
-    }
+    
     /* positioning dropdown menu*/
 
     #reqQuestionType {
        position: absolute;
-      
        right: 5px;
-      
+       display: none!important;
     }
     #reqQuestionType button{
        width: 150px;
     }
-   
+    #addTitle {
+      
+    }
     
 }
 @media (min-width: 380px) {

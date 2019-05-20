@@ -2,13 +2,46 @@
 
 body {
     min-height: 100%;
-   
-    
+    background-color: rgb(248, 249, 250);
 }
 /* puts footer at the bottom of the view*/
 footer {
     margin-top: -40px;
 }
+
+
+
+#nav-layout {
+    
+}
+#page-content-wrapper {
+    
+}
+
+/* registration page css*/
+#reg {
+    font-size: 1.5rem;
+}
+#reg-link {
+    color: blue;
+}
+
+#reg-content {
+    display: table;
+    margin: 0 auto;
+}
+
+#reg-wrapper {
+    display: table-cell;
+    top: 50px;
+    border: 1px solid #ccc;
+    width: 360px;
+    position: relative;
+    top: 50px;
+    padding: 20px;
+}
+
+
 
 
 /* puts username and logoff on the the right of navbar at the specified view-width*/
@@ -37,6 +70,7 @@ footer {
     padding-top: 0;
     padding-bottom: 0;
     }
+    
 }
 
 /* hides username at specified view-width */
@@ -121,7 +155,9 @@ a.home-page-button:hover {
     border: 3px solid black;  
 }
 
-
+input.title {
+    position: relative!important;
+}
 
 
 /* scales page down at specified view-width */
