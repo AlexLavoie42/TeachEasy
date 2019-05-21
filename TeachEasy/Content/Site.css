@@ -4,18 +4,18 @@ body {
     min-height: 100%;
     background-color: #f8f9fa !important;
 }
+
 /* puts footer at the bottom of the view*/
 footer {
-    
+    color: transparent;
 }
-
-
 
 #nav-layout {
     background-color: white!important;
 }
-#page-content-wrapper {
-    
+
+#asgn-page-background {
+    padding-bottom: 20px;
 }
 
 /* registration page css*/
@@ -152,10 +152,20 @@ a.home-page-button:hover {
     width: 765px;
     background-color: white;
     display: inline-block;
-    border: 3px solid black;  
+    border: 2px solid rgb(214, 218, 222);
 }
 
 
+@media (max-width: 765px) {
+    #asgn-page-background {
+        margin-top: 70px;
+        
+    }
+    #asgn-page-content {
+        padding-left: 0;             
+    }
+    
+}
 
 
 /* scales page down at specified view-width */
@@ -172,7 +182,7 @@ a.home-page-button:hover {
         transform: scale(.62);
         transform-origin: left; 
         position: relative;
-        top: -200px;
+        top: -180px;
         left: -13px;
     }
 
@@ -188,8 +198,9 @@ a.home-page-button:hover {
     }
     /* positioning math tool */
     #graphInfo {
-        top: -920px!important;
+        top: -950px!important;
         left: 3px!important;
+        
     }
 }
 
