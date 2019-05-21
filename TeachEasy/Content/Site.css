@@ -145,29 +145,15 @@ a.home-page-button:hover {
     padding-bottom: 5px;
 }
 
-#asgn-page-content {
-    margin-top: 20px;
-    text-align: left;
-    height: 990px;
-    width: 765px;
-    background-color: white;
-    display: inline-block;
-    border: 2px solid rgb(214, 218, 222);
-}
-
-
 @media (max-width: 765px) {
     #asgn-page-background {
         margin-top: 70px;
-        
     }
+
     #asgn-page-content {
-        padding-left: 0;             
+        padding-left: 0;
     }
-    
 }
-
-
 /* scales page down at specified view-width */
 
 @media only screen and (max-width: 448px) {

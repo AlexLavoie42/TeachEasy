@@ -103,7 +103,18 @@
     font-size: 50px;
     background: none;
     border: none;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+#asgn-page-content {
+    margin-top: 20px;
+    text-align: left;
+    height: 990px;
     width: 765px;
+    background-color: white;
+    display: inline-block;
+    border: 2px solid rgb(214, 218, 222);
 }
 
 @media print {
@@ -121,6 +132,17 @@
         top: 0;
     }
 }
+
+@media (max-width: 965px) {
+    #asgn-page-background {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #asgn-page-content {
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 
