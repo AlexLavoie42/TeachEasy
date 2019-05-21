@@ -108,23 +108,13 @@
                 return false;
             }
             titles[titles.length - 1].value = 'Title';
-            titles[titles.length - 1].width = questionsListDiv.width + "px";
-            titles[titles.length - 1].style.position = 'absolute';
-            titles[titles.length - 1].style.left = questionsListDiv.offsetLeft + "px";
-            if (index == 0) titles[titles.length - 1].style.top = '100px';
-            else titles[titles.length - 1].style.top = index * 4 + "px";
-            document.body.appendChild(titles[titles.length - 1]);
+            questionsListDiv.prepend(titles[titles.length - 1]);
 
-            let newLineCount = 4;//number of new lines to be added after title is inserted
-            let i;
-            for (i = 0; i < newLineCount; i++)
-                quill.insertEmbed(index, 'newLine', true, Quill.sources.USER);
+            quill.insertEmbed(index, 'newLine', true, Quill.sources.USER);
         } else
             window.alert("You must add a question before displaying another title.");
     }
     addTitle(0);
-
-    document.getElementById("addTitle").onclick = function () { addTitle(0); };
 
     class QuestionBlot extends BlockEmbed {
         static create() {
@@ -279,12 +269,6 @@
     mc.onclick = function () { questionTypeSelected(1); addQuestion(); questionTypeDisplayed = false; }
     fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
     tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
-
-    window.onresize = function(){
-        let i;
-        for (i = 0; i < titles.length; i++)
-            titles[i].style.left = questionsListDiv.offsetLeft;
-    };
 
     //ADDING NEW PAGES//////////////
     

@@ -105,7 +105,6 @@
     width: 765px;
 }
 
-
 @media print {
     .button {
         display: none;
