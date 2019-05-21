@@ -99,7 +99,8 @@
     font-size: 50px;
     background: none;
     border: none;
-    width: 765px;
+    max-width: 100% !important;
+    width: 100%;
 }
 
 footer{
