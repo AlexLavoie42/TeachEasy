@@ -80,7 +80,13 @@ namespace TeachEasy.Controllers
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(html);
 
-            var title = htmlDoc.DocumentNode.SelectSingleNode("//h1").InnerText;
+            //var title = htmlDoc.DocumentNode.SelectSingleNode("//h1").InnerText;
+            var titleTxt = "";
+            var title = htmlDoc.DocumentNode.SelectSingleNode("//input").Attributes["value"];
+            if (title != null)
+            {
+                titleTxt = title.Value;
+            }
             var htmlNodes = htmlDoc.DocumentNode.SelectNodes("//div/p");
 
             List<Question> questionList = new List<Question>();

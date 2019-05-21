@@ -4,6 +4,7 @@
     var mc = document.getElementById("mc");
     var fib = document.getElementById("fib");
     var tf = document.getElementById("tf");
+    var saveButton = document.getElementById("saveQuestionsList");
 
     var questionType;
     var questionTypeTable = document.getElementById("reqQuestionType");
@@ -215,25 +216,6 @@
         $('#Answer').val($("#asgn-page-content").text());
         $('#QuestionText').val($("#asgn-page-content").html());
         $form.submit();
-        /*
-        $.ajax({
-            url: "/Questions/Create",
-            data: {
-                //QuestionText: $("#questionsList").val(),
-                //Answer: $("#questionsList").val(),
-                QuestionText: $("#questionsList").val(),
-                Answer: $("#questionsList").val(),
-                IsPublic: false,
-                SubjectId: ""
-            },
-            method: "POST",
-            dataType: "html",
-
-            success: function (result) {
-                console.log(result);
-            }
-        });
-        */
     }
 
     //Creates Math Graph
@@ -301,6 +283,7 @@
     mc.onclick = function () { questionTypeSelected(1); addQuestion(); questionTypeDisplayed = false; }
     fib.onclick = function () { questionTypeSelected(2); addQuestion(); questionTypeDisplayed = false; }
     tf.onclick = function () { questionTypeSelected(3); addQuestion(); questionTypeDisplayed = false; }
+    saveButton.onclick = function () { saveQuestionsList(); }
 
     //ADDING NEW PAGES//////////////
     
