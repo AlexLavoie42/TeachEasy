@@ -165,7 +165,6 @@ a.home-page-button:hover {
     #asgn-page-background {
         width: 100%;
         margin: auto 0;
-        transform: scale(.62);
         transform-origin: left; 
         position: relative;
         top: -180px;
@@ -173,7 +172,6 @@ a.home-page-button:hover {
     }
 
     #asgn-page-content{
-        transform: scale(.75);
         transform-origin: left;
         display: block; 
     }

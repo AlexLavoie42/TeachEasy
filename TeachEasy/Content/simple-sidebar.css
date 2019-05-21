@@ -186,19 +186,10 @@ p.descView-text, .mobView-text{
         
     }
     
-
-    input.title {
-        display: none;
-    }
-    
    
     @media (max-width: 330px) {
         #question_modifiers button, #addSection {
             width: 62px;
-        }
-        #asgn-page-background {
-            transform: scale(.55);
-            margin-top: -20px;
         }
         #logo {
             margin-right: 20px;

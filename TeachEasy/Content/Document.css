@@ -134,14 +134,16 @@
 }
 
 @media (max-width: 965px) {
-    #asgn-page-background {
-        width: 100%;
-        max-width: 100%;
-    }
 
     #asgn-page-content {
         width: 100%;
         max-width: 100%;
+    }
+}
+
+@media (max-width: 448px){
+    #asgn-page-background {
+        margin-top: 280px;
     }
 }
 
