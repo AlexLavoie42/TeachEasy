@@ -170,7 +170,7 @@ a.home-page-button:hover {
 
 /* scales page down at specified view-width */
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 448px) {
     html, body {
         max-width: 100%;
         overflow-x: hidden;

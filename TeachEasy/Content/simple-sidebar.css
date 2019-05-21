@@ -62,9 +62,7 @@ p.descView-text, .mobView-text{
 /* hide side-bar */
 @media (max-width: 635px) {
     
-    #asgn-page-content {
-        background-color: black;
-    }
+    
     #question_modifiers button:not(#addTitle), #addSection{
        
         width: 75px!important; 
@@ -139,7 +137,8 @@ p.descView-text, .mobView-text{
      
     
 }
-@media (max-width: 370px) {
+@media (max-width: 448px) {
+    
     body {
         overflow: hidden;
     }
@@ -156,7 +155,7 @@ p.descView-text, .mobView-text{
         width: 100%; 
         position: absolute;
         display: block;
-        justify-content: space-around;
+        text-align: center;
         top: 60px;
         min-height: 0;
        
@@ -178,23 +177,21 @@ p.descView-text, .mobView-text{
         text-align: center;
     }
     #menu-top {
-        width: 100%;   
+        width: 100%;
     }
+    .main-list {
+       
+        display: flex!important;
+        justify-content: space-around;
+        
+    }
+    
 
     input.title {
         display: none;
     }
-
-    #question_modifiers button, #addSection {
-        padding: 0px;
-        width: 72px;
-        display: inline-block;
-        justify-content: space-around;
-        height: 65px;
-        margin-bottom: 0px;
-        z-index: 1;
-    }
-
+    
+   
     @media (max-width: 330px) {
         #question_modifiers button, #addSection {
             width: 62px;
@@ -265,13 +262,13 @@ p.descView-text, .mobView-text{
     
     
 }
-@media (min-width: 560px) {
+@media (min-width: 635px) {
     p.mobView-text {
         display: none;
     }
     
 }
-@media (max-width: 560px) {
+@media (max-width: 635px) {
     p.descView-text {
         display: none!important;
     }
