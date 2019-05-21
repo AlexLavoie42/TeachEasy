@@ -57,6 +57,9 @@
       <Private>True</Private>
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.4.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>packages\HtmlAgilityPack.1.11.4\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -230,6 +233,14 @@
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905030016444_InitialCreate.cs" />
+    <Compile Include="Migrations\201905030016444_InitialCreate.designer.cs">
+      <DependentUpon>201905030016444_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905111017226_guestion.cs" />
+    <Compile Include="Migrations\201905111017226_guestion.Designer.cs">
+      <DependentUpon>201905111017226_guestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

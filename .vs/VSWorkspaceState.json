@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TeachEasy"
+    "\\TeachEasy",
+    "\\TeachEasy\\Migrations"
   ],
   "SelectedNode": "\\TeachEasy\\TeachEasy.csproj",
   "PreviewInSolutionExplorer": false

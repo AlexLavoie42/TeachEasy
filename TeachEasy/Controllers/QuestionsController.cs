@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using TeachEasy.Models;
 using System.Net.NetworkInformation;
+using HtmlAgilityPack;
+using System.Collections;
 
 namespace TeachEasy.Controllers
 {
@@ -59,12 +61,61 @@ namespace TeachEasy.Controllers
                 question.Ip = GetIPAddress();
                 question.MacAddress = GetMacAddress();
 
-                db.Questions.Add(question);
-                await db.SaveChangesAsync();
+                Question[] questionList = parsingQuestions(question);
+                foreach (Question element in questionList)
+                {
+                    db.Questions.Add(element);
+                    await db.SaveChangesAsync();
+                }
+
                 return RedirectToAction("Index");
             }
 
             return View(question);
+        }
+
+        private Question[] parsingQuestions(Question question)
+        {
+            var html = question.QuestionText;
+            var htmlDoc = new HtmlDocument();
+            htmlDoc.LoadHtml(html);
+
+            var title = htmlDoc.DocumentNode.SelectSingleNode("//h1").InnerText;
+            var htmlNodes = htmlDoc.DocumentNode.SelectNodes("//div/p");
+
+            List<Question> questionList = new List<Question>();
+            string tempQuestionText = "";
+            string tempAnswer = "";
+
+            foreach (var node in htmlNodes)
+            {
+                if (node.Attributes["class"] == null)
+                {
+                    continue;
+                }
+
+                if (node.Attributes["class"].Value == "q")
+                {
+                    tempQuestionText += node.OuterHtml;
+                    if (node.NextSibling.Attributes["class"] == null || node.NextSibling.Attributes["class"].Value == "q")
+                    {
+                        continue;
+                    }
+                    else if (node.NextSibling.Attributes["class"].Value == "question")
+                    {
+                        tempAnswer = node.NextSibling.OuterHtml;
+                    }
+                }
+
+                Question temp = (Question)question.Clone();
+                temp.QuestionText = tempQuestionText;
+                temp.Answer = tempAnswer;
+                questionList.Add(temp);
+                tempQuestionText = "";
+                tempAnswer = "";
+            }
+
+            return questionList.ToArray();
         }
 
         // GET: Questions/Edit/5
