@@ -311,6 +311,7 @@ namespace TeachEasy.Controllers
 
         //
         // GET: /Manage/LinkLoginCallback
+
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());

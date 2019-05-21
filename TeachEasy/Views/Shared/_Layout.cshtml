@@ -1,44 +1,136 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TeachEasy | Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Custom styles for this template -->
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        @if (ViewBag.ShowSideBar ?? false)
+        {
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Tool Bar </div>
+            <div id="question_modifiers">
+                <button type="button" class="list-group-item side-button" id="math">Math Equation</button>
+                <button type="button" class="list-group-item side-button" id="insertGraph">Insert Graph</button>
+                <button type="button" class="list-group-item side-button" onclick="window.print()">Print/Export</button>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div id="question_section">
+                <button id="addSection" class="list-group-item side-button addSection-head">Add Question ></button>
+                <div id="reqQuestionType">
+                    <form>
+                        <button id="written" class="list-group-item side-button" type="button">Written</button>
+                        <button id="mc" class="list-group-item side-button" type="button">Multiple Choice</button>
+                        <button id="fib" class="list-group-item side-button" type="button">Fill in Blank</button>
+                        <button id="tf" class="list-group-item side-button" type="button">True/False</button>
+                    </form>
+                </div>
+            </div>
+            <div id="toolbar">
+                <p>font formatting</p>
+                <!-- Add a bold and italic button -->
+                <button class="ql-bold"><b title="Bold">B</b></button>
+                <button class="ql-italic" style="font-family: 'Times New Roman'"><i title="Italic">I</i></button><br/>
+                <!-- Add subscript and superscript buttons -->
+                <button class="ql-script" value="sub" title="Subscript">X<sub>y</sub></button>
+                <button class="ql-script" value="super" title="Superscript">X<sup>y</sup></button>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        @RenderSection("SPAViews", required: false)
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        }
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
 
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <!--                           <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+                -->
+                
+                <img src="~/Content/images/teacheasy.png" id="logo"/>
+                <button class="navbar-toggler" id ="navbar-menu" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon" aria-expanded="false"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="menu">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item active">
+                                @Html.ActionLink("Assignment Editor", "Index", "Assignment", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item active">
+                                @Html.ActionLink("About Us", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="menu menu-right">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0" id="nav-menu-right">
+                            @using Microsoft.AspNet.Identity
+                            @if (Request.IsAuthenticated)
+                            {
+                                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm"}))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <li>
+                                        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage", @class = "nav-link", id = "username" })
+                                    </li>
+                                    <li><a class ="nav-link" id="right-menu-logoff" href="javascript:sessionStorage.removeItem('accessToken');$('#logoutForm').submit();">Log off</a></li>
+                                }
+                            }
+                            else
+                            {
+                                <li class="nav-item active">@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+                                <li class="nav-item active">@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink nav-menu-right", @class = "nav-link" })</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                @RenderBody()
+                @RenderSection("SPAViews", required: false)
+                
+                <footer><hr />
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!-- Scripts -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });</script>
+
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>

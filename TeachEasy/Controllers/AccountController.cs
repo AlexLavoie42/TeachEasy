@@ -163,7 +163,7 @@ namespace TeachEasy.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Hometown = model.Hometown };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -331,6 +331,7 @@ namespace TeachEasy.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
+        [RequireHttps]
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
@@ -361,6 +362,7 @@ namespace TeachEasy.Controllers
 
         //
         // POST: /Account/ExternalLoginConfirmation
+        [RequireHttps]
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
