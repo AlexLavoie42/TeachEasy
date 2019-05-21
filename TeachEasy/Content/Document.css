@@ -118,7 +118,19 @@
 }
 
 @media print {
-    body * {
+    #keyboard{
+        visibility: hidden;
+    }
+
+    #toolbar{
+        visibility: hidden;
+    }
+
+    #graphInfo{
+        visibility: hidden;
+    }
+
+    #menu-top{
         visibility: hidden;
     }
 

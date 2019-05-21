@@ -247,6 +247,7 @@
         document.getElementById("graphInfo").style.display = "block";
         document.getElementById("graphInfo").style.top = graphs[graphs.length - 1].offsetTop - 1080 + "px";
 
+        toggleKeyboard();
         expressionInput.focus();
     }
 

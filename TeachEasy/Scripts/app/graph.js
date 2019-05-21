@@ -43,7 +43,6 @@ function draw(graphNo) {
 
 //closes the equation input div when exit button is clicked
 function closeGraphEq() {
-    console.log("FUCK");
     document.getElementById("graphInfo").style.display = "none";
 }
 
