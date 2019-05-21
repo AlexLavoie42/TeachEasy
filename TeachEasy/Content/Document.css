@@ -116,6 +116,9 @@
     display: inline-block;
     border: 2px solid rgb(214, 218, 222);
 }
+.ql-clipboard{
+    display: none;
+}
 
 @media print {
     #keyboard{

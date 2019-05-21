@@ -9,7 +9,7 @@ namespace TeachEasy.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(TeachEasy.Models.ApplicationDbContext context)
