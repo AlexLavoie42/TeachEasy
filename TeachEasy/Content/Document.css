@@ -102,12 +102,16 @@
     width: 765px;
 }
 
+footer{
+    display:none;
+}
+
 @media print {
     .button {
         display: none;
     }
 
-    #asgn-page-background {
+    #sidebar-wrapper {
         display: none;
     }
 

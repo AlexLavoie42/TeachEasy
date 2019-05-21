@@ -169,6 +169,11 @@
         }
     });
 
+    var exitGraph = document.querySelector('#exitGraph');
+    exitGraph.addEventListener('click', function () {
+        closeGraphEq();
+    });
+
     //Types of question answers
     const sectionTypes = {
         WRITTEN: 0,
