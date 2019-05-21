@@ -25,15 +25,16 @@
         @if (ViewBag.ShowSideBar ?? false)
         {
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading"><p>Tool Bar</p> </div>
+            <div class="sidebar-heading"> </div>
             <div id="menu-top">
                 <div id="question_modifiers">
-                    <button type="button" class="list-group-item side-button" id="math"><p class="descView-text">Math Equation</p><p class="mobView-text">Math</p></button>
-                    <button type="button" class="list-group-item side-button" id="insertGraph"><p class="descView-text">Insert Graph</p><p class="mobView-text">Graph</p></button>
-                    <button type="button" class="list-group-item side-button" id="printButton" onclick="window.print()"><p class="descView-text">Print/Export</p><p class="mobView-text">Print/Exp</p></button>
-                  
+                    <button type="button" class="list-group-item side-button main-list" id="math"><p class="descView-text">Math Equation</p><p class="mobView-text">Math</p></button>
+                    <button type="button" class="list-group-item side-button main-list" id="insertGraph"><p class="descView-text">Insert Graph</p><p class="mobView-text">Graph</p></button>
+                    <button type="button" class="list-group-item side-button main-list" id="printButton" onclick="window.print()"><p class="descView-text">Print/Export</p><p class="mobView-text">Print/Exp</p></button>
+                    <button type="button" class="list-group-item side-button main-list scrap" id="addTitle"><p class="descView-text">Add Title</p><p class="mobView-text">Title</p></button>
+                </div>
                 <div id="question_section">
-                    <button id="addSection" class="list-group-item side-button addSection-head"><p class="descView-text">Add Question ></p><p class="mobView-text">Add ></p></button>
+                    <button id="addSection" class="list-group-item side-button addSection-head main-list"><p class="descView-text">Add Question ></p><p class="mobView-text">Add ></p></button>
                     <div id="reqQuestionType">
                         <form>
                             <button id="written" class="list-group-item side-button" type="button">Written</button>
@@ -44,6 +45,7 @@
                     </div>
                 </div>
             </div>
+                <div class="toolbar-wrapper">
                 <div id="toolbar">
                     <p>font formatting</p>
                     <!-- Add a bold and italic button -->
@@ -80,7 +82,7 @@
                                 @Html.ActionLink("Assignment Editor", "Index", "Assignment", new { area = "" }, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item active">
-                                @Html.ActionLink("About Us", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                                @Html.ActionLink("About Us", "Index", "AboutUs", new { area = "" }, new { @class = "nav-link" })
                             </li>
                         </ul>
 

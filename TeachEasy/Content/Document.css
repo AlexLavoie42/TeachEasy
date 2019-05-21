@@ -24,7 +24,6 @@
 }
 
     #reqQuestionType button {
-        background-color: #f9f0f0;
         text-align: left; 
         padding-left: 2em;
     }
@@ -52,11 +51,13 @@
 #graphInfo input{text-align: center;}
 
 #toolbar {
-    border: 1px solid black;
+    border: 2px solid black;
+    background-color: rgb(106, 20, 108);
     text-align: center;
+    color: white;
     margin-top: 25px;
-    background-color: #f9f0f0;
 }
+
     #toolbar p {
         text-align: left;
         padding-left: .75em;
@@ -106,33 +107,20 @@
 }
 
 @media print {
-    .button {
-        display: none;
+    body * {
+        visibility: hidden;
     }
 
-    #asgn-page-background {
-        display: none;
+    #asgn-page-content {
+        visibility: visible;
     }
 
-    #reqQuestionType {
-        display: none;
+    #asgn-page-content {
+        position: absolute;
+        left: 0;
+        top: 0;
     }
-
-    .infoBox {
-        display: none;
-    }
-
-    #toolbar {
-        display: none;
-    }
-
-    #addSection {
-        display: none;
-    }
-
-    #keyboard{
-        display: none;
-    }
+}
 }
 
 
