@@ -11,6 +11,10 @@
     border: 2px solid #FF6F69;
     height: 40px;
 }
+
+
+
+
 /* side-bar styling */
 
 #reqQuestionType {
@@ -20,7 +24,6 @@
 }
 
     #reqQuestionType button {
-        background-color: #f9f0f0;
         text-align: left; 
         padding-left: 2em;
     }
@@ -48,15 +51,16 @@
 #graphInfo input{text-align: center;}
 
 #toolbar {
-    border: 1px solid black;
+    border: 2px solid black;
+    background-color: rgb(106, 20, 108);
     text-align: center;
+    color: white;
     margin-top: 25px;
-    background-color: #f9f0f0;
 }
+
     #toolbar p {
         text-align: left;
         padding-left: .75em;
-        
     }
 
 #toolbar button{
@@ -99,41 +103,47 @@
     font-size: 50px;
     background: none;
     border: none;
+    width: 100% !important;
     max-width: 100% !important;
-    width: 100%;
 }
 
-footer{
-    display:none;
+#asgn-page-content {
+    margin-top: 20px;
+    text-align: left;
+    height: 990px;
+    width: 765px;
+    background-color: white;
+    display: inline-block;
+    border: 2px solid rgb(214, 218, 222);
 }
 
 @media print {
-    .button {
-        display: none;
+    body * {
+        visibility: hidden;
     }
 
-    #sidebar-wrapper {
-        display: none;
+    #asgn-page-content {
+        visibility: visible;
     }
 
-    #reqQuestionType {
-        display: none;
+    #asgn-page-content {
+        position: absolute;
+        left: 0;
+        top: 0;
     }
+}
 
-    .infoBox {
-        display: none;
+@media (max-width: 965px) {
+
+    #asgn-page-content {
+        width: 100%;
+        max-width: 100%;
     }
+}
 
-    #toolbar {
-        display: none;
-    }
-
-    #addSection {
-        display: none;
-    }
-
-    #keyboard{
-        display: none;
+@media (max-width: 448px){
+    #asgn-page-background {
+        margin-top: 280px;
     }
 }
 
