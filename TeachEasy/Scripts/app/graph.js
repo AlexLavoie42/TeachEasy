@@ -149,8 +149,6 @@ function getHeightByPercent(percent) {
 const endPageY = window.innerHeight;
 var keyboard = document.getElementById("keyboard");
 keyboard.style.top = endPageY + "px";
-if (window.innerWidth < 500)
-    keyboard.style.top = endPageY + 50 + 'px';
 
 function highlightKey(key, color) {
     if (keyboardDisplay) {
@@ -224,9 +222,6 @@ function highlightKey(key, color) {
                 break;
         }
     }
-
-    if (window.innerWidth < 500)//get rid of mobile keyboard
-        graphInfo.focus();
 }
 
 var equationFocus = false;//if the graph equation input has focus
@@ -362,7 +357,12 @@ function graphClicked(graphNo) {
 
 expressionInput.style.display = "none";
 
-window.onresize = function () {
+//checks if the program is mobile. If so, don't pop up mobile keyboard
+function mobileKeyboard() {
     if (window.innerWidth < 500)
-        keyboard.style.top = endPageY + 50 + 'px';
+        expressionInput.readOnly = 'true';
+    else
+        expressionInput.readOnly = 'false';
 }
+
+window.onresize = mobileKeyboard;
