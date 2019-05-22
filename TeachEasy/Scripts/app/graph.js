@@ -365,4 +365,6 @@ function mobileKeyboard() {
         expressionInput.readOnly = 'false';
 }
 
+mobileKeyboard();
+
 window.onresize = mobileKeyboard;
