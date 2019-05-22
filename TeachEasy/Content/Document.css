@@ -163,6 +163,9 @@
     }
 }
 
+.modebar {
+    display: none !important;
+}
 
 
 /*bootstrap overrides*/
