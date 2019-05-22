@@ -270,7 +270,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Document.css" />
     <Content Include="Content\Graph.css" />
+    <Content Include="Content\images\alex.jpg" />
+    <Content Include="Content\images\daniel.jpg" />
+    <Content Include="Content\images\gurp.png" />
+    <Content Include="Content\images\michael.jpg" />
+    <Content Include="Content\images\saeed.jpg" />
     <Content Include="Content\images\teacheasy.png" />
+    <Content Include="Content\images\user-icon.png" />
     <Content Include="Content\scss-files.txt" />
     <Content Include="Content\simple-sidebar.css" />
     <Content Include="Content\Site.css" />
