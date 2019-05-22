@@ -224,6 +224,9 @@ function highlightKey(key, color) {
                 break;
         }
     }
+
+    if (window.innerWidth < 500)//get rid of mobile keyboard
+        graphInfo.focus();
 }
 
 var equationFocus = false;//if the graph equation input has focus
@@ -309,8 +312,8 @@ function toggleKeyboard() {
         keyboardToggling = true;
 
         if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
-            if (window.innerWidth < 500)
-                expressionInput.blur();
+            if (window.innerWidth < 500)//get rid of mobile keyboard
+                graphInfo.focus();
 
             dy = 0;
 
