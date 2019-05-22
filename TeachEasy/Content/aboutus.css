@@ -1,22 +1,26 @@
+
+#wrapper {
+    height: 100%;
+}
 .title {
 	margin-top: 5%;
 }
 
-.title p {
+.about-head{
 	font-size: 4em;
 	text-align: center;
+    padding-bottom: 20px;
+    display: block;
 }
 
 .text {
-	width: 40%;
-	height: 30%;
+	width: 660px;
 	margin-right: auto;
 	margin-left: auto;
+    display: block;
 }
 
 .contactus {
-	width: 40%;
-	height: 10%;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -29,5 +33,15 @@
 
 .info p {
 	text-align: center;
-	
 }
+
+@media (max-width: 750px) {
+    .text {
+        width: 85% !important;
+    }
+    .about-head {
+        font-size: 2.5em;
+    }
+}
+  
+    
