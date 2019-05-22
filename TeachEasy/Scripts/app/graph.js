@@ -3,6 +3,7 @@ var requestingEquationInput;//true if wait for equation input is happening
 var equationInputWait;//how long the equation input has been waiting
 var begString;//what the expression was before the user changed it
 var equationErrLog = document.getElementById('equationErrLog');
+var graphReadOnly = false;//if the graph input is read only
 //Prevent form submitting
 $('form input').keydown(function (e) {
     if (e.keyCode == 13) {
@@ -148,7 +149,7 @@ function getHeightByPercent(percent) {
 //the y position of the keyboard
 const endPageY = window.innerHeight;
 var keyboard = document.getElementById("keyboard");
-keyboard.style.top = endPageY + "px";
+keyboard.style.top = endPageY + 200 + "px";
 
 function highlightKey(key, color) {
     if (keyboardDisplay) {
@@ -220,6 +221,14 @@ function highlightKey(key, color) {
             case '=':
                 equalsKey.style.backgroundColor = color;
                 break;
+            default:
+                validKey = false;
+        }
+        console.log(expressionInput.readOnly);
+
+        //if read only is set, manually insert any valid key inputted
+        if (validKey && graphReadOnly) {
+            expressionInput.value += key;
         }
     }
 }
@@ -237,12 +246,14 @@ var darkGrey = "#808080";
 
 //add event listeners for the keys so that the virtual keys get highlighted
 window.onkeydown = function (e) {
+    validKey = true;
     if (equationFocus)
         expressionInput.focus();
     highlightKey(e.key, darkGrey);
 };
 
 window.onkeyup = function (e) {
+    validKey = false;//makes key not be inserted twice
     highlightKey(e.key, grey);
 };
 
@@ -307,8 +318,6 @@ function toggleKeyboard() {
         keyboardToggling = true;
 
         if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
-            if (window.innerWidth < 500)//get rid of mobile keyboard
-                graphInfo.focus();
 
             dy = 0;
 
@@ -334,6 +343,7 @@ function toggleKeyboard() {
                 if (dy == 0) {
                     keyboardToggling = false;
                     keyboardDisplay = false;
+                    keyboard.style.top = endPageY + 200 + "px";
                     window.clearInterval(interval);
                 }
             }, 25);
@@ -359,10 +369,10 @@ expressionInput.style.display = "none";
 
 //checks if the program is mobile. If so, don't pop up mobile keyboard
 function mobileKeyboard() {
-    if (window.innerWidth < 500)
-        expressionInput.readOnly = 'true';
-    else
-        expressionInput.readOnly = 'false';
+    if (window.innerWidth < 800) {
+        expressionInput.readOnly = 'readOnly';
+        graphReadOnly = true;
+    }
 }
 
 mobileKeyboard();
