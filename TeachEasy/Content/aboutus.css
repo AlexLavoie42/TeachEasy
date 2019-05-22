@@ -43,5 +43,24 @@
         font-size: 2.5em;
     }
 }
-  
+
+@media (max-width: 500px) {
+.bios img {
+    width: 150px;
+}
+
+}
+.bios img {
+    width: 30%!important;
+    padding-bottom: 5px;
+    border: 1px solid black;
+    } 
+
+.bios {
+    padding: 20px;
+}
+.bios h3{
+    padding-bottom: 10px;
+}
     
+
