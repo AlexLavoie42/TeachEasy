@@ -149,6 +149,8 @@ function getHeightByPercent(percent) {
 const endPageY = window.innerHeight;
 var keyboard = document.getElementById("keyboard");
 keyboard.style.top = endPageY + "px";
+if (window.innerWidth < 500)
+    keyboard.style.top = endPageY + 50 + 'px';
 
 function highlightKey(key, color) {
     if (keyboardDisplay) {
@@ -307,6 +309,9 @@ function toggleKeyboard() {
         keyboardToggling = true;
 
         if (!keyboardDisplay) {//if the keyboard isn't displayed, pull it up
+            if (window.innerWidth < 500)
+                expressionInput.blur();
+
             dy = 0;
 
             let interval = window.setInterval(function () {
@@ -353,3 +358,8 @@ function graphClicked(graphNo) {
 }
 
 expressionInput.style.display = "none";
+
+window.onresize = function () {
+    if (window.innerWidth < 500)
+        keyboard.style.top = endPageY + 50 + 'px';
+}
