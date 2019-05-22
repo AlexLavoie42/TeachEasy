@@ -239,8 +239,8 @@
             console.log(this.offsetTop);
             document.getElementById("graphInfo").style.display = "block";
             document.getElementById("graphInfo").style.top = this.offsetTop - 1080 + "px";
-            if (window.innerWidth < 500)
-                document.getElementById("graphInfo").style.top = this.offsetTop - 1250 + "px";
+            if (window.innerWidth < 800)
+                document.getElementById("graphInfo").style.top = this.offsetTop - 1500 + "px";
         }, false);
 
         graphNo++;
