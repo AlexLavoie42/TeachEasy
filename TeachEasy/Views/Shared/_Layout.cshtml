@@ -62,7 +62,7 @@
         <!-- Page Content -->
 
         <div id="page-content-wrapper">
-
+            
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" id="nav-layout">
                 <!--                           <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
                 -->
@@ -82,13 +82,16 @@
                                 @Html.ActionLink("Assignment Editor", "Index", "Assignment", new { area = "" }, new { @class = "nav-link" })
                             </li>
                             <li class="nav-item active">
-                                @Html.ActionLink("About Us", "Index", "AboutUs", new { area = "" }, new { @class = "nav-link" })
+                                @Html.ActionLink("About Us", "Index", "About", new { area = "" }, new { @class = "nav-link" })
                             </li>
+                            
                         </ul>
 
                     </div>
                     <div class="menu menu-right">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0" id="nav-menu-right">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0" id="nav-menu-right"><li><img src="~/Content/images/user-icon.png" id="user-icon" style="display: none;" /></li>
+                        <div id="drop-menu-right">
+                            
                             @using Microsoft.AspNet.Identity
                             @if (Request.IsAuthenticated)
                             {
@@ -106,6 +109,7 @@
                                 <li class="nav-item active">@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
                                 <li class="nav-item active">@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink nav-menu-right", @class = "nav-link" })</li>
                             }
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -119,7 +123,7 @@
                 </footer>
             </div>
 
-        </div>
+        </>
         <!-- /#page-content-wrapper -->
 
     </div>
